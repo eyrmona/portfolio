@@ -1,0 +1,95 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--color-bg) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border-subtle);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text-primary);
+  background: var(--color-accent-subtle);
+  border: 1px solid var(--color-tag-border);
+  border-radius: 6px;
+  padding: 0.35em 0.6em;
+  transition: background 0.2s, color 0.25s ease;
+}
+
+.nav-logo:hover {
+  background: var(--color-accent-subtle);
+  filter: brightness(1.2);
+  color: var(--color-text-primary);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--color-text-primary);
+}
+
+.nav-theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  color: var(--color-text-secondary);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  font-family: inherit;
+  padding: 0.4em 0.75em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  line-height: 1;
+}
+
+.nav-theme-toggle:hover {
+  background: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.nav-theme-toggle svg {
+  flex-shrink: 0;
+}
+
+.nav-contact {
+  color: var(--color-accent) !important;
+  border: 1px solid var(--color-tag-border);
+  border-radius: 6px;
+  padding: 0.4em 0.9em;
+  transition: background 0.2s, color 0.2s !important;
+}
+
+.nav-contact:hover {
+  background: var(--color-accent-subtle);
+  color: var(--color-accent-hover) !important;
+}
