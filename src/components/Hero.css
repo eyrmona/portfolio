@@ -61,7 +61,7 @@
 
 .btn-primary {
   display: inline-block;
-  background: var(--color-accent);
+  background: var(--color-btn-primary-bg);
   color: #fff;
   font-size: 0.9375rem;
   font-weight: 600;

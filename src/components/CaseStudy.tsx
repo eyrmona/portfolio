@@ -11,7 +11,7 @@ export default function CaseStudy() {
           <h2 className="cs-title">Intapp Design System</h2>
           <p className="cs-subtitle">
             Building a framework-agnostic design system from scratch to unify nine enterprise
-            products across five different front-end stacks — and scaling it to become the
+            products across five different front-end stacks, scaling it to become the
             foundation for AI-assisted development at Intapp.
           </p>
           <div className="cs-meta-row">
@@ -21,11 +21,11 @@ export default function CaseStudy() {
             </div>
             <div className="cs-meta-item">
               <span className="cs-meta-label">My Role</span>
-              <span className="cs-meta-value">UI Engineer → Lead UI Engineer</span>
+              <span className="cs-meta-value">UI Engineer to UI Engineering Manager</span>
             </div>
             <div className="cs-meta-item">
               <span className="cs-meta-label">Team</span>
-              <span className="cs-meta-value">3 → 7 people</span>
+              <span className="cs-meta-value">3 to 7 people</span>
             </div>
             <div className="cs-meta-item">
               <span className="cs-meta-label">Products</span>
@@ -35,29 +35,29 @@ export default function CaseStudy() {
         </header>
 
         {/* Problem */}
-        <Section id="problem" label="01 — The Problem">
+        <Section id="problem" label="01 / The Problem">
           <h3>Fragmentation at scale</h3>
           <p>
             Intapp is a large enterprise software company whose product suite was built almost entirely
             through acquisition. Each product came with its own visual language, its own front-end
-            framework, and its own component library — or lack of one. The result was a portfolio of
+            framework, and its own component library, or lack of one. The result was a portfolio of
             nine products that shared a company name but little else.
           </p>
           <div className="callout-grid">
-            <Callout icon="⚡" label="15 button components" sub="across the product suite — all slightly different" />
+            <Callout icon="⚡" label="15 button components" sub="across the product suite, all slightly different" />
             <Callout icon="🧩" label="5 front-end stacks" sub="React, Angular, Next.js, React Native, .Net" />
             <Callout icon="🎨" label="No shared tokens" sub="no CSS library, no icon library, no shared system" />
             <Callout icon="📐" label="No governance" sub="a UI kit existed but with no contribution model" />
           </div>
           <p>
-            The company was also undergoing a rebrand — new logos, new colors, new typography — which
+            The company was also undergoing a rebrand (new logos, new colors, new typography) which
             had to roll out across all products simultaneously. A design system wasn't a nice-to-have.
             It was the only viable path.
           </p>
         </Section>
 
         {/* My Role */}
-        <Section id="role" label="02 — My Role">
+        <Section id="role" label="02 / My Role">
           <h3>Starting as the bridge between design and engineering</h3>
           <p>
             I joined in December 2022 as the UI engineer on a three-person founding team alongside a
@@ -79,7 +79,7 @@ export default function CaseStudy() {
         </Section>
 
         {/* Discovery */}
-        <Section id="discovery" label="03 — Discovery">
+        <Section id="discovery" label="03 / Discovery">
           <h3>Understanding the landscape before building anything</h3>
           <p>
             Before writing a line of code, we ran a structured discovery process to understand what we
@@ -87,20 +87,20 @@ export default function CaseStudy() {
           </p>
           <ul className="process-list">
             <li>
-              <strong>In-person kickoff workshop</strong> — attended by design, product managers, and
+              <strong>In-person kickoff workshop</strong>, attended by design, product managers, and
               engineers from DealCloud (the largest product). Whiteboard session to surface pain points,
               identify shared patterns, and understand what problems the system needed to solve.
             </li>
             <li>
-              <strong>Product map</strong> — catalogued all nine products: their tech stacks, stakeholders,
+              <strong>Product map</strong>: catalogued all nine products, their tech stacks, stakeholders,
               engineering teams, and end users.
             </li>
             <li>
-              <strong>Interface audit</strong> — gathered screenshots of all product interfaces to identify
+              <strong>Interface audit</strong>: gathered screenshots of all product interfaces to identify
               shared components, divergent patterns, and product-specific bespoke elements.
             </li>
             <li>
-              <strong>Component inventory</strong> — audited what existed and what was needed, distinguishing
+              <strong>Component inventory</strong>: audited what existed and what was needed, distinguishing
               which components were genuinely shared vs. too specific to any one product.
             </li>
           </ul>
@@ -121,7 +121,7 @@ export default function CaseStudy() {
         </Section>
 
         {/* Design Language */}
-        <Section id="design-language" label="04 — Design Language">
+        <Section id="design-language" label="04 / Design Language">
           <h3>Uniform: a design language built for enterprise clarity</h3>
           <p>
             With discovery complete, we developed the visual design language in parallel with engineering
@@ -129,7 +129,7 @@ export default function CaseStudy() {
             to four explorations, and pressure-testing the finalists with stakeholders and real clients.
           </p>
           <p>
-            The final direction was named <strong>Uniform</strong> — chosen deliberately for what it
+            The final direction was named <strong>Uniform</strong>, chosen deliberately for what it
             represented: uniformity, consistency, clarity across the entire product suite.
           </p>
           <p>
@@ -145,18 +145,18 @@ export default function CaseStudy() {
             ))}
           </div>
           <p>
-            Each semantic category required its own full palette — default, hover, active, disabled,
-            subtle background — plus light and dark mode variants. The token architecture was the mechanism
+            Each semantic category required its own full palette (default, hover, active, disabled,
+            subtle background) plus light and dark mode variants. The token architecture was the mechanism
             that made all of this manageable.
           </p>
         </Section>
 
         {/* Design Tokens */}
-        <Section id="tokens" label="05 — Design Tokens">
+        <Section id="tokens" label="05 / Design Tokens">
           <h3>A three-layer token architecture built to scale</h3>
           <p>
             Tokens are the connective tissue between design decisions and implementation. The architecture
-            uses three explicit layers — global primitives, semantic decisions, and mode overrides — managed
+            uses three explicit layers (global primitives, semantic decisions, and mode overrides), managed
             in Figma via Token Studio and synced to the code repository through an automated build pipeline.
           </p>
 
@@ -183,7 +183,7 @@ export default function CaseStudy() {
           <p>
             The separation between layers was a deliberate architectural decision. By keeping raw values
             in global, semantic decisions in the theme layer, and only overrides in the mode files, the
-            diff between light and dark is minimal — no duplication, no drift.
+            diff between light and dark is minimal: no duplication, no drift.
           </p>
 
           <h4>Build pipeline</h4>
@@ -205,7 +205,7 @@ export default function CaseStudy() {
           <h4>Dark mode without touching component code</h4>
           <p>
             Dark mode is opt-in and implemented entirely in the token layer. A product enables it by
-            setting <code>data-mode="dark"</code> on any element — no component changes required:
+            setting <code>data-mode="dark"</code> on any element, with no component code changes required:
           </p>
           <pre><code>{`:root {
   --color-uniform-ui-surface-primary: #ffffff;
@@ -222,12 +222,12 @@ export default function CaseStudy() {
           <p>
             Tokens follow a self-documenting pattern: <code>category-component-property-state</code>.
             Example: <code>color-button-primary-surface-default</code>. Design and engineering share the
-            same vocabulary — no translation layer needed in handoff.
+            same vocabulary, with no translation layer needed in handoff.
           </p>
         </Section>
 
         {/* Architecture */}
-        <Section id="architecture" label="06 — Architecture">
+        <Section id="architecture" label="06 / Architecture">
           <h3>Framework-agnostic by design</h3>
           <p>
             With nine products across React 17, React 18, Angular, Next.js, React Native, and .Net, no
@@ -264,13 +264,13 @@ export default function CaseStudy() {
           <p>
             A <code>beta</code> branch exists for major version releases, publishing with a{' '}
             <code>@beta</code> dist-tag so product teams can test before stable release. Packages only
-            publish when their <code>package.json</code> version is explicitly bumped — giving the team
+            publish when their <code>package.json</code> version is explicitly bumped, giving the team
             precise control over what ships.
           </p>
 
           <h4>Quality gates</h4>
           <ul className="role-list">
-            <li>PropComments test — all <code>@Props</code> must have documented comments and default values</li>
+            <li>PropComments test: all <code>@Props</code> must have documented comments and default values</li>
             <li>Full unit test suite</li>
             <li>End-to-end test suite</li>
             <li>Chromatic visual regression testing on every push</li>
@@ -279,17 +279,17 @@ export default function CaseStudy() {
         </Section>
 
         {/* Documentation */}
-        <Section id="documentation" label="07 — Documentation">
+        <Section id="documentation" label="07 / Documentation">
           <h3>Four audiences, four entry points</h3>
           <p>
             The documentation strategy was built around four distinct audiences: designers, engineers
-            consuming the system, engineers contributing to it, and — as the system matured — AI agents
+            consuming the system, engineers contributing to it, and (as the system matured) AI agents
             consuming and surfacing documentation to others.
           </p>
           <div className="doc-grid">
             <div className="doc-card">
               <div className="doc-card-label">Storybook</div>
-              <p>Live component reference and primary engineering documentation. Three separate Storybook instances — one per framework package — composed into a single parent deployed to CDN environments.</p>
+              <p>Live component reference and primary engineering documentation. Three separate Storybook instances (one per framework package) composed into a single parent deployed to CDN environments.</p>
             </div>
             <div className="doc-card">
               <div className="doc-card-label">ZeroHeight</div>
@@ -297,7 +297,7 @@ export default function CaseStudy() {
             </div>
             <div className="doc-card">
               <div className="doc-card-label">Auto-generated API docs</div>
-              <p>Stencil generates component API documentation automatically from source — but only if prop comments are present. A PropComments test enforces this at build time. Documentation can never drift from implementation.</p>
+              <p>Stencil generates component API documentation automatically from source, but only if prop comments are present. A PropComments test enforces this at build time. Documentation can never drift from implementation.</p>
             </div>
             <div className="doc-card">
               <div className="doc-card-label">Claude Code primers</div>
@@ -307,7 +307,7 @@ export default function CaseStudy() {
         </Section>
 
         {/* Adoption */}
-        <Section id="adoption" label="08 — Adoption Strategy">
+        <Section id="adoption" label="08 / Adoption Strategy">
           <h3>Meeting teams where they were</h3>
           <p>
             Resistance to adoption is the most common place design systems stall. Product teams worried
@@ -345,7 +345,7 @@ export default function CaseStudy() {
           </div>
 
           <p>
-            For DealCloud, the rebrand deadline drove a rapid adoption of the CSS and icon libraries — the
+            For DealCloud, the rebrand deadline drove rapid adoption of the CSS and icon libraries, the
             fastest path to brand alignment ahead of their annual trade conference announcement.
           </p>
           <p>
@@ -360,12 +360,12 @@ export default function CaseStudy() {
         </Section>
 
         {/* AI Scaling */}
-        <Section id="ai" label="09 — AI Optimization">
+        <Section id="ai" label="09 / AI Optimization">
           <h3>When AI started generating UI without knowing the design system existed</h3>
           <p>
             As AI coding tools became embedded in engineering workflows across Intapp, a new problem
             emerged: AI was generating UI that didn't match Intapp standards. Design drift in every sprint,
-            caught in QA rather than prevented at authoring time. The design system existed — AI tools
+            caught in QA rather than prevented at authoring time. The design system existed, but AI tools
             just couldn't see it.
           </p>
           <p>
@@ -377,7 +377,7 @@ export default function CaseStudy() {
               <div className="ai-initiative-icon">📄</div>
               <div>
                 <strong>Claude Code usage primers</strong>
-                <p>Each <code>@ids</code> package ships a markdown primer that engineers add to <code>CLAUDE.md</code>. AI assistants then have accurate system context — token formats, naming conventions, component APIs, known gotchas — rather than generic web knowledge.</p>
+                <p>Each <code>@ids</code> package ships a markdown primer that engineers add to <code>CLAUDE.md</code>. AI assistants then have accurate system context (token formats, naming conventions, component APIs, known gotchas) rather than generic web knowledge.</p>
               </div>
             </div>
             <div className="ai-initiative">
@@ -405,14 +405,14 @@ export default function CaseStudy() {
               <div className="ai-initiative-icon">🤖</div>
               <div>
                 <strong>AI Design System Assistant</strong>
-                <p>A conversational assistant deployed in Slack and surfaced in ZeroHeight, trained on UDS documentation. Any Intapp employee — designer, PM, or engineer — could ask which component to use or which token applied, and receive an answer grounded in UDS rather than generic web knowledge.</p>
+                <p>A conversational assistant deployed in Slack and surfaced in ZeroHeight, trained on UDS documentation. Any Intapp employee (designer, PM, or engineer) could ask which component to use or which token applied, and receive an answer grounded in UDS rather than generic web knowledge.</p>
               </div>
             </div>
             <div className="ai-initiative">
               <div className="ai-initiative-icon">🎨</div>
               <div>
                 <strong>Figma MCP integration</strong>
-                <p>Connected UDS components, tokens, and patterns directly into the Figma design environment. AI-generated design suggestions in Figma were scoped to UDS — keeping generated designs on-brand automatically and reducing handoff gaps.</p>
+                <p>Connected UDS components, tokens, and patterns directly into the Figma design environment. AI-generated design suggestions in Figma were scoped to UDS, keeping generated designs on-brand automatically and reducing handoff gaps.</p>
               </div>
             </div>
             <div className="ai-initiative">
@@ -442,7 +442,7 @@ export default function CaseStudy() {
         </Section>
 
         {/* Impact */}
-        <Section id="impact" label="10 — Impact">
+        <Section id="impact" label="10 / Impact">
           <h3>What changed</h3>
           <div className="impact-grid">
             <div className="impact-card">
@@ -458,7 +458,7 @@ export default function CaseStudy() {
             <div className="impact-card">
               <div className="impact-card-icon">♿</div>
               <div className="impact-card-title">Improved accessibility</div>
-              <p>Accessibility baked into shared components — every team inherits compliant behavior without needing to implement it independently.</p>
+              <p>Accessibility baked into shared components: every team inherits compliant behavior without needing to implement it independently.</p>
             </div>
             <div className="impact-card">
               <div className="impact-card-icon">🤝</div>
@@ -473,7 +473,7 @@ export default function CaseStudy() {
             <div className="impact-card">
               <div className="impact-card-icon">🤖</div>
               <div className="impact-card-title">AI-ready infrastructure</div>
-              <p>The system became the grounding layer for AI-assisted development — preventing drift at the source rather than catching it in QA.</p>
+              <p>The system became the grounding layer for AI-assisted development, preventing drift at the source rather than catching it in QA.</p>
             </div>
           </div>
         </Section>
@@ -527,7 +527,7 @@ const semanticColors = [
 const packages = [
   { name: '@ids/tokens', desc: 'Design tokens synced from Figma via Token Studio' },
   { name: '@ids/styles', desc: 'SCSS styles for all components' },
-  { name: '@ids/web-components', desc: 'Web Components built with Stencil — the source of truth' },
+  { name: '@ids/web-components', desc: 'Web Components built with Stencil, the source of truth' },
   { name: '@ids/react', desc: 'React 18 components, generated from Stencil via react-output-target' },
   { name: '@ids/react-next', desc: 'React 19 components with SSR support, generated from Stencil' },
 ]

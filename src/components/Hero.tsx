@@ -7,7 +7,7 @@ export default function Hero() {
         <div className="hero-eyebrow">UI Engineer & Design Systems</div>
         <h1 className="hero-name">Aimee Maroney</h1>
         <p className="hero-bio">
-          I build the infrastructure that connects design to code — design systems, token architectures,
+          I build the infrastructure that connects design to code: design systems, token architectures,
           component libraries, and the tooling that makes them scale. I work at the intersection of
           engineering rigor and design craft, with a background in both.
         </p>
@@ -43,15 +43,15 @@ export default function Hero() {
 
 const tokenSamples = [
   { name: 'color-button-primary-surface-default', color: '#082f5e' },
-  { name: 'color-button-primary-surface-hover', color: '#0a3d7a' },
-  { name: 'color-button-primary-surface-active', color: '#062548' },
+  { name: 'color-button-primary-surface-hover', color: '#0b4184' },
+  { name: 'color-button-primary-surface-active', color: '#0e54a9' },
+  { name: 'color-action-secondary-default', color: '#0353c7' },
   { name: 'color-ui-surface-primary', color: '#ffffff' },
-  { name: 'color-ui-surface-secondary', color: '#f4f5f8' },
-  { name: 'color-feedback-success-default', color: '#1a7f4e' },
-  { name: 'color-feedback-warning-default', color: '#c47a00' },
-  { name: 'color-feedback-error-default', color: '#c4272b' },
-  { name: 'color-feedback-info-default', color: '#1461c4' },
-  { name: 'color-ai-surface-default', color: '#6b2fa0' },
-  { name: 'color-neutral-300', color: '#d0d1dc' },
-  { name: 'color-text-primary', color: '#111827' },
+  { name: 'color-ui-surface-secondary', color: '#f2f0ee' },
+  { name: 'color-ui-surface-tertiary', color: '#06254b' },
+  { name: 'color-toast-alert-success-outline', color: '#286d35' },
+  { name: 'color-toast-alert-warning-outline', color: '#92420e' },
+  { name: 'color-toast-alert-error-outline', color: '#bf2832' },
+  { name: 'color-button-ai-primary-surface-default', color: '#784dda' },
+  { name: 'color-ui-text-primary-enabled', color: '#25242a' },
 ]
