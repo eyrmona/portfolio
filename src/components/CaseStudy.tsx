@@ -7,7 +7,7 @@ export default function CaseStudy() {
 
         {/* Header */}
         <header className="cs-header">
-          <div className="cs-eyebrow">Case Study · 2022–2024</div>
+          <div className="cs-eyebrow">Case Study · 2022–2026</div>
           <h2 className="cs-title">Intapp Design System</h2>
           <p className="cs-subtitle">
             Building a framework-agnostic design system from scratch to unify nine enterprise
@@ -21,7 +21,7 @@ export default function CaseStudy() {
             </div>
             <div className="cs-meta-item">
               <span className="cs-meta-label">My Role</span>
-              <span className="cs-meta-value">UI Engineer to UI Engineering Manager</span>
+              <span className="cs-meta-value">UI Engineering Manager</span>
             </div>
             <div className="cs-meta-item">
               <span className="cs-meta-label">Team</span>
@@ -50,7 +50,7 @@ export default function CaseStudy() {
             <Callout icon="📐" label="No governance" sub="a UI kit existed but with no contribution model" />
           </div>
           <p>
-            The company was also undergoing a rebrand (new logos, new colors, new typography) which
+            The company was looking to improve product experience but was also undergoing a rebrand (new logos, new colors, new typography) which
             had to roll out across all products simultaneously. A design system wasn't a nice-to-have.
             It was the only viable path.
           </p>
@@ -61,7 +61,7 @@ export default function CaseStudy() {
           <h3>Starting as the bridge between design and engineering</h3>
           <p>
             I joined in December 2022 as the UI engineer on a three-person founding team alongside a
-            senior designer and a principal designer. My background in design made me the natural bridge
+            senior designer and a principal designer. My background in both design and engineering made me the natural bridge
             between the two disciplines from day one.
           </p>
           <ul className="role-list">

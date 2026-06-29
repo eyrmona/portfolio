@@ -96,6 +96,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  min-width: 0;
 }
 
 .cs-section-content h3 {
@@ -475,6 +476,11 @@
 
 .ai-initiative pre {
   margin-top: 0.75rem;
+}
+
+.ai-initiative > div {
+  min-width: 0;
+  flex: 1;
 }
 
 /* Skill table */

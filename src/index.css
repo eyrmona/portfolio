@@ -99,6 +99,7 @@ pre {
   padding: 1.25rem 1.5rem;
   overflow-x: auto;
   margin: 0;
+  max-width: 100%;
   transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
