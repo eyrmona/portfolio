@@ -26,7 +26,7 @@
   color: var(--color-text-primary);
   background: var(--color-accent-subtle);
   border: 1px solid var(--color-tag-border);
-  border-radius: 6px;
+  border-radius: 2px;
   padding: 0.35em 0.6em;
   transition: background 0.2s, color 0.25s ease;
 }
@@ -63,7 +63,7 @@
   gap: 0.4em;
   background: var(--color-surface-raised);
   border: 1px solid var(--color-border);
-  border-radius: 6px;
+  border-radius: 2px;
   color: var(--color-text-secondary);
   font-size: 0.8125rem;
   font-weight: 500;
@@ -86,7 +86,7 @@
 .nav-contact {
   color: var(--color-accent) !important;
   border: 1px solid var(--color-tag-border);
-  border-radius: 6px;
+  border-radius: 2px;
   padding: 0.4em 0.9em;
   font-size: 0.9rem;
   font-weight: 500;
@@ -111,7 +111,7 @@
   justify-content: center;
   background: var(--color-surface-raised);
   border: 1px solid var(--color-border);
-  border-radius: 6px;
+  border-radius: 2px;
   color: var(--color-text-secondary);
   width: 36px;
   height: 36px;
@@ -180,7 +180,7 @@
   color: var(--color-text-primary);
   background: var(--color-accent-subtle);
   border: 1px solid var(--color-tag-border);
-  border-radius: 6px;
+  border-radius: 2px;
   padding: 0.35em 0.6em;
 }
 
@@ -190,7 +190,7 @@
   justify-content: center;
   background: var(--color-surface-raised);
   border: 1px solid var(--color-border);
-  border-radius: 6px;
+  border-radius: 2px;
   color: var(--color-text-secondary);
   width: 36px;
   height: 36px;
@@ -218,7 +218,7 @@
   color: var(--color-text-secondary);
   font-size: 1.0625rem;
   font-weight: 500;
-  border-radius: 8px;
+  border-radius: 2px;
   transition: background 0.15s, color 0.15s;
 }
 

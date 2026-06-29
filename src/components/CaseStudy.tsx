@@ -374,56 +374,47 @@ export default function CaseStudy() {
 
           <div className="ai-initiative-list">
             <div className="ai-initiative">
-              <div className="ai-initiative-icon">📄</div>
-              <div>
-                <strong>Claude Code usage primers</strong>
-                <p>Each <code>@ids</code> package ships a markdown primer that engineers add to <code>CLAUDE.md</code>. AI assistants then have accurate system context (token formats, naming conventions, component APIs, known gotchas) rather than generic web knowledge.</p>
+              <h4>Claude Code usage primers</h4>
+              <p>Each <code>@ids</code> package ships a markdown primer that engineers add to <code>CLAUDE.md</code>. AI assistants then have accurate system context (token formats, naming conventions, component APIs, known gotchas) rather than generic web knowledge.</p>
+            </div>
+            <div className="ai-initiative">
+              <h4>MCP servers for live documentation access</h4>
+              <p>ZeroHeight, Figma, and Atlassian (Confluence) were all configured as MCP servers in the IDS developer environment. Engineers working in Claude Code or Cursor had the same documentation context available as a senior design system team member.</p>
+            </div>
+            <div className="ai-initiative">
+              <h4>Claude Code skills for developer workflows</h4>
+              <div className="skill-table">
+                {skills.map((s, i) => (
+                  <div key={i} className="skill-row">
+                    <code>{s.cmd}</code>
+                    <span>{s.desc}</span>
+                  </div>
+                ))}
               </div>
             </div>
             <div className="ai-initiative">
-              <div className="ai-initiative-icon">🔌</div>
-              <div>
-                <strong>MCP servers for live documentation access</strong>
-                <p>ZeroHeight, Figma, and Atlassian (Confluence) were all configured as MCP servers in the IDS developer environment. Engineers working in Claude Code or Cursor had the same documentation context available as a senior design system team member.</p>
-              </div>
+              <h4>AI Design System Assistant</h4>
+              <p>A conversational assistant deployed in Slack and surfaced in ZeroHeight, trained on UDS documentation. Any Intapp employee (designer, PM, or engineer) could ask which component to use or which token applied, and receive an answer grounded in UDS rather than generic web knowledge.</p>
             </div>
             <div className="ai-initiative">
-              <div className="ai-initiative-icon">⚡</div>
-              <div>
-                <strong>Claude Code skills for developer workflows</strong>
-                <div className="skill-table">
-                  {skills.map((s, i) => (
-                    <div key={i} className="skill-row">
-                      <code>{s.cmd}</code>
-                      <span>{s.desc}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <h4>Figma MCP integration</h4>
+              <p>Connected UDS components, tokens, and patterns directly into the Figma design environment. AI-generated design suggestions in Figma were scoped to UDS, keeping generated designs on-brand automatically and reducing handoff gaps.</p>
             </div>
             <div className="ai-initiative">
-              <div className="ai-initiative-icon">🤖</div>
-              <div>
-                <strong>AI Design System Assistant</strong>
-                <p>A conversational assistant deployed in Slack and surfaced in ZeroHeight, trained on UDS documentation. Any Intapp employee (designer, PM, or engineer) could ask which component to use or which token applied, and receive an answer grounded in UDS rather than generic web knowledge.</p>
-              </div>
-            </div>
-            <div className="ai-initiative">
-              <div className="ai-initiative-icon">🎨</div>
-              <div>
-                <strong>Figma MCP integration</strong>
-                <p>Connected UDS components, tokens, and patterns directly into the Figma design environment. AI-generated design suggestions in Figma were scoped to UDS, keeping generated designs on-brand automatically and reducing handoff gaps.</p>
-              </div>
-            </div>
-            <div className="ai-initiative">
-              <div className="ai-initiative-icon">🛠</div>
-              <div>
-                <strong>create-intapp-app CLI</strong>
-                <p>A scaffolding CLI that solved the blank-repository problem. Every new project at Intapp had been spending its first sprint recreating infrastructure that already existed.</p>
-                <pre><code>{`npx create-intapp-app my-project
+              <h4>create-intapp-app CLI</h4>
+              <p>A scaffolding CLI that solved the blank-repository problem. Every new project at Intapp had been spending its first sprint recreating infrastructure that already existed.</p>
+              <pre><code>{`npx create-intapp-app my-project
 # Choose stack: Vanilla JS, React, or Next.js
 # UDS tokens, components, TypeScript config,
 # CI/CD, and linting pre-wired`}</code></pre>
+              <p className="cs-meta-label" style={{marginTop: '1rem'}}>Skills</p>
+              <div className="skill-table">
+                {cliSkills.map((s, i) => (
+                  <div key={i} className="skill-row">
+                    <code>{s.cmd}</code>
+                    <span>{s.desc}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -530,6 +521,11 @@ const packages = [
   { name: '@ids/web-components', desc: 'Web Components built with Stencil, the source of truth' },
   { name: '@ids/react', desc: 'React 18 components, generated from Stencil via react-output-target' },
   { name: '@ids/react-next', desc: 'React 19 components with SSR support, generated from Stencil' },
+]
+
+const cliSkills = [
+  { cmd: '/handoff', desc: 'Fetches a designer\'s prototype by Jira ticket or ADO URL, diffs it against the product repo, and writes a HANDOFF_PLAN.md with components to add, new tokens, and (when stacks differ) a translated src/_handoff/App.tsx' },
+  { cmd: '/scaffold-ticket', desc: 'Takes a Jira ticket number, reads its acceptance criteria, and scaffolds a create-intapp-app prototype pre-wired with the relevant UDS components and token context' },
 ]
 
 const skills = [
