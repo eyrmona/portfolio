@@ -9,6 +9,7 @@
 }
 
 .nav-inner {
+  position: relative;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -16,6 +17,21 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.nav-crown {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  color: var(--color-text-primary);
+  pointer-events: none;
+  transition: color 0.25s ease;
+}
+
+.nav-crown svg {
+  display: block;
+  height: 22px;
+  width: auto;
 }
 
 .nav-logo {

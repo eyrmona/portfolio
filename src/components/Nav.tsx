@@ -4,9 +4,10 @@ import './Nav.css'
 interface NavProps {
   theme: 'dark' | 'light'
   onToggleTheme: () => void
+  crownProgress?: number
 }
 
-export default function Nav({ theme, onToggleTheme }: NavProps) {
+export default function Nav({ theme, onToggleTheme, crownProgress = 0 }: NavProps) {
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   // Close drawer on escape key
@@ -28,6 +29,8 @@ export default function Nav({ theme, onToggleTheme }: NavProps) {
     <>
       <nav className="nav">
         <div className="nav-inner">
+          <NavCrown progress={crownProgress} />
+
           {/* Desktop links */}
           <ul className="nav-links nav-links--desktop">
             <li><a href="#about">About</a></li>
@@ -84,6 +87,26 @@ export default function Nav({ theme, onToggleTheme }: NavProps) {
         </ul>
       </div>
     </>
+  )
+}
+
+function NavCrown({ progress }: { progress: number }) {
+  return (
+    <div
+      className="nav-crown"
+      aria-hidden="true"
+      style={{
+        opacity: progress,
+        transform: `translateY(-50%) scale(${0.6 + progress * 0.4})`,
+      }}
+    >
+      <svg viewBox="0 0 98 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M48.8356 0L3.10181 62.162H8.4907L48.8356 7.98843L88.7268 62.1094H95.0081L48.8356 0Z" fill="var(--color-accent)"/>
+        <path d="M49.0549 29.7334L43.8335 34.9548L49.0549 40.1762L54.2763 34.9548L49.0549 29.7334Z" fill="var(--color-accent)"/>
+        <path d="M93.8304 68.6157H4.27946V73.8518H93.8304V68.6157Z" fill="currentColor"/>
+        <path d="M48.9715 52.2939L97.4382 2.81926L97.573 62.0947L92.7761 62.0976V57.329H92.8064L92.739 14.4999L50.9353 57.1747L48.9715 59.1875L5.2029 13.7616L4.93434 57.329H4.96364V62.1581L0.16774 62.162L0.570084 2.08098L48.9715 52.2939Z" fill="currentColor"/>
+      </svg>
+    </div>
   )
 }
 
