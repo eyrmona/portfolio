@@ -6,7 +6,35 @@
   align-items: center;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 5rem 2rem 5rem 0;
+  padding: 0rem 2rem 5rem 0;
+}
+
+.hero-logo {
+  width: auto;
+  color: var(--color-text-primary);
+  margin-bottom: 2rem;
+  display: block;
+  transition: color 0.25s ease;
+}
+
+.logo-pupil {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: logo-pupil-dilate 3s ease-in-out 1.5s 1 both;
+}
+
+@keyframes logo-pupil-dilate {
+  0%, 100% { transform: scale(1); }
+  15%      { transform: scale(1.7); }
+  30%      { transform: scale(1); }
+  60%      { transform: scale(1.7); }
+  75%      { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-pupil {
+    animation: none;
+  }
 }
 
 .hero-eyebrow {

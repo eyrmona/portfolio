@@ -1,6 +1,56 @@
+import { useState, useEffect } from 'react'
 import './CaseStudy.css'
 
+const navSections = [
+  { id: 'problem',       num: '01', name: 'The Problem' },
+  { id: 'role',          num: '02', name: 'My Role' },
+  { id: 'discovery',     num: '03', name: 'Discovery' },
+  { id: 'design-language', num: '04', name: 'Design Language' },
+  { id: 'tokens',        num: '05', name: 'Tokens' },
+  { id: 'architecture',  num: '06', name: 'Architecture' },
+  { id: 'documentation', num: '07', name: 'Documentation' },
+  { id: 'adoption',      num: '08', name: 'Adoption' },
+  { id: 'ai',            num: '09', name: 'AI Optimization' },
+  { id: 'impact',        num: '10', name: 'Impact' },
+]
+
 export default function CaseStudy() {
+  const [activeSection, setActiveSection] = useState('problem')
+  const [visitedSections, setVisitedSections] = useState<Set<string>>(new Set())
+  const [showScrollTop, setShowScrollTop] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+            setVisitedSections(prev => new Set(prev).add(entry.target.id))
+          }
+        })
+      },
+      { rootMargin: '-15% 0px -75% 0px', threshold: 0 }
+    )
+    navSections.forEach(s => {
+      const el = document.getElementById(s.id)
+      if (el) observer.observe(el)
+    })
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const article = document.getElementById('case-study')
+    const onScroll = () => {
+      setShowScrollTop(article ? window.scrollY > article.offsetTop + 300 : false)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const scrollToTop = () => {
+    document.getElementById('case-study')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <article className="case-study" id="case-study">
       <div className="cs-container">
@@ -33,6 +83,27 @@ export default function CaseStudy() {
             </div>
           </div>
         </header>
+
+        {/* Table of contents */}
+        <nav className="cs-toc" aria-label="Case study sections">
+          <p className="cs-meta-label" style={{ marginBottom: '1rem' }}>Contents</p>
+          <div className="cs-toc-grid">
+            {navSections.map(s => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                className={[
+                  'cs-toc-item',
+                  activeSection === s.id ? 'active' : '',
+                  visitedSections.has(s.id) && activeSection !== s.id ? 'visited' : '',
+                ].filter(Boolean).join(' ')}
+              >
+                <span className="cs-toc-num">{s.num}</span>
+                <span className="cs-toc-name">{s.name}</span>
+              </a>
+            ))}
+          </div>
+        </nav>
 
         {/* Problem */}
         <Section id="problem" label="01 / The Problem">
@@ -470,6 +541,15 @@ export default function CaseStudy() {
         </Section>
 
       </div>
+
+      {showScrollTop && (
+        <button className="cs-scroll-top" onClick={scrollToTop} aria-label="Back to top of case study">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 12V4M4 8l4-4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <span>Top</span>
+        </button>
+      )}
     </article>
   )
 }

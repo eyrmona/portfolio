@@ -28,8 +28,6 @@ export default function Nav({ theme, onToggleTheme }: NavProps) {
     <>
       <nav className="nav">
         <div className="nav-inner">
-          <a href="#" className="nav-logo">AM</a>
-
           {/* Desktop links */}
           <ul className="nav-links nav-links--desktop">
             <li><a href="#about">About</a></li>
@@ -73,7 +71,6 @@ export default function Nav({ theme, onToggleTheme }: NavProps) {
         aria-label="Navigation menu"
       >
         <div className="nav-drawer-header">
-          <span className="nav-drawer-logo">AM</span>
           <button className="nav-drawer-close" onClick={close} aria-label="Close menu">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
               <line x1="4" y1="4" x2="16" y2="16" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"/>

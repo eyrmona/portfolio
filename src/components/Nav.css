@@ -5,8 +5,7 @@
   background: color-mix(in srgb, var(--color-bg) 85%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-border-subtle);
-  transition: background-color 0.25s ease, border-color 0.25s ease;
+  transition: background-color 0.25s ease;
 }
 
 .nav-inner {
@@ -16,7 +15,7 @@
   height: 64px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .nav-logo {
