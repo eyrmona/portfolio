@@ -5,10 +5,16 @@ interface NavProps {
   theme: 'dark' | 'light'
   onToggleTheme: () => void
   crownProgress?: number
+  onNavigate: (path: string) => void
 }
 
-export default function Nav({ theme, onToggleTheme, crownProgress = 0 }: NavProps) {
+export default function Nav({ theme, onToggleTheme, crownProgress = 0, onNavigate }: NavProps) {
   const [drawerOpen, setDrawerOpen] = useState(false)
+
+  const goToResume = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    onNavigate('/resume')
+  }
 
   // Close drawer on escape key
   useEffect(() => {
@@ -33,8 +39,9 @@ export default function Nav({ theme, onToggleTheme, crownProgress = 0 }: NavProp
 
           {/* Desktop links */}
           <ul className="nav-links nav-links--desktop">
-            <li><a href="#about">About</a></li>
-            <li><a href="#case-study">Case Study</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#case-study">Case Study</a></li>
+            <li><a href="/resume" onClick={goToResume}>Resume</a></li>
             <li><ThemeToggle theme={theme} onToggle={onToggleTheme} /></li>
             <li><a href="mailto:aimee.maroney@gmail.com" className="nav-contact">Contact</a></li>
           </ul>
@@ -82,8 +89,9 @@ export default function Nav({ theme, onToggleTheme, crownProgress = 0 }: NavProp
           </button>
         </div>
         <ul className="nav-drawer-links">
-          <li><a href="#about" onClick={close}>About</a></li>
-          <li><a href="#case-study" onClick={close}>Case Study</a></li>
+          <li><a href="/#about" onClick={close}>About</a></li>
+          <li><a href="/#case-study" onClick={close}>Case Study</a></li>
+          <li><a href="/resume" onClick={(e) => { goToResume(e); close() }}>Resume</a></li>
         </ul>
       </div>
     </>

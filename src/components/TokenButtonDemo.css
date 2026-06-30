@@ -1,0 +1,172 @@
+.token-demo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.token-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.token-demo-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.token-card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 6px;
+  padding: 0.5rem 0.6rem;
+  opacity: 0;
+  animation: token-card-in 0.4s ease forwards;
+  min-width: 0;
+}
+
+@keyframes token-card-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.token-swatch {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #c4c4c4;
+  background-image:
+    linear-gradient(45deg, #9a9a9a 25%, transparent 25%),
+    linear-gradient(-45deg, #9a9a9a 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #9a9a9a 75%),
+    linear-gradient(-45deg, transparent 75%, #9a9a9a 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 0 4px, 4px -4px, -4px 0;
+}
+
+.token-swatch-fill {
+  position: absolute;
+  inset: 0;
+}
+
+.token-name {
+  font-family: 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+}
+
+.token-demo-group-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  align-self: flex-start;
+  margin: 0;
+}
+
+.token-card--value {
+  align-items: center;
+}
+
+.token-value-pill {
+  font-family: 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  padding: 0.2em 0.45em;
+  flex-shrink: 0;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+/* ── UDS button, styled from the real Button.module.scss + uniform.scss tokens ── */
+.uds-demo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.uds-demo-button:hover {
+  background: var(--btn-bg-hover);
+  color: var(--btn-color-hover);
+  box-shadow: 0 2px 4px 0 #00000029;
+}
+
+.uds-demo-button-icon {
+  flex-shrink: 0;
+}
+
+.token-demo-select-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.token-demo-select-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.token-demo-select {
+  appearance: none;
+  background: var(--color-surface-raised) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%238ca8c5' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 0.75em center;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  color: var(--color-text-primary);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5em 2.25em 0.5em 0.9em;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.token-demo-select:hover {
+  border-color: var(--color-text-muted);
+}
+
+.token-demo-select:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}

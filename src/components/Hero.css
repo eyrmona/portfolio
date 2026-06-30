@@ -1,12 +1,30 @@
 .hero {
+  position: relative;
   min-height: calc(100vh - 64px);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
-  max-width: 1100px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0rem 2rem 5rem 0;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -4rem;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background-image: radial-gradient(circle, var(--color-text-muted) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+  opacity: 0.35;
+  mask-image: linear-gradient(to bottom, black 0%, transparent 75%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 75%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .hero-logo {
@@ -115,7 +133,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  max-width: 31.25rem;
   margin-bottom: 2.5rem;
+  margin-right: 1rem;
 }
 
 .tag {
@@ -169,57 +189,29 @@
   transform: translateY(-1px);
 }
 
-/* Token grid decoration */
+/* Interactive token/button demo */
 .hero-graphic {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 10rem;
 }
 
-.token-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  width: 100%;
-  max-width: 380px;
+/* ── iPad portrait: stack graphic below text, keep it visible ── */
+@media (min-width: 768px) and (max-width: 1099px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 4rem 2rem 5rem;
+  }
+  .hero-graphic {
+    display: flex;
+    margin-top: 2rem;
+  }
 }
 
-.token-card {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: 6px;
-  padding: 0.6rem 0.75rem;
-  opacity: 0;
-  animation: fadeSlideIn 0.4s ease forwards;
-}
-
-@keyframes fadeSlideIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.token-swatch {
-  width: 20px;
-  height: 20px;
-  border-radius: 0;
-  flex-shrink: 0;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-.token-name {
-  font-family: 'Fira Code', 'Cascadia Code', monospace;
-  font-size: 0.65rem;
-  color: var(--color-text-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.4;
-}
-
-@media (max-width: 800px) {
+/* ── Mobile: single column, hide graphic ── */
+@media (max-width: 767px) {
   .hero {
     grid-template-columns: 1fr;
     min-height: auto;

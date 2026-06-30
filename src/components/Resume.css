@@ -1,0 +1,229 @@
+.resume-page {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border-subtle);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.resume-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 6rem 2rem 8rem;
+}
+
+/* ── Header ── */
+.resume-header {
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.resume-eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.resume-name {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.resume-contact {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.75rem;
+}
+
+.resume-contact-sep {
+  color: var(--color-text-muted);
+}
+
+.resume-summary {
+  font-size: 1.0625rem;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  max-width: 65ch;
+  margin-bottom: 2rem;
+}
+
+.resume-downloads {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ── Sections ── */
+.resume-section {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.resume-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.resume-section-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 1.75rem;
+}
+
+/* ── Areas of expertise tags ── */
+.resume-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.resume-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  background: var(--color-tag-bg);
+  border: 1px solid var(--color-tag-border);
+  border-radius: 100px;
+  padding: 0.35em 0.85em;
+  letter-spacing: 0.02em;
+}
+
+/* ── Experience ── */
+.resume-jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.resume-job-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.resume-job-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.resume-job-company {
+  font-size: 0.875rem;
+  color: var(--color-accent);
+  margin-top: 0.2rem;
+}
+
+.resume-job-dates {
+  font-size: 0.8125rem;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.resume-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.resume-bullets li {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.resume-bullets li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* ── Skills ── */
+.resume-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.resume-skill-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1rem;
+}
+
+.resume-skill-row dt {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.resume-skill-row dd {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Education / Certifications ── */
+.resume-simple-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.resume-simple-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.resume-simple-primary {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.resume-simple-secondary {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .resume-container {
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  .resume-job-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .resume-skill-row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}
