@@ -546,6 +546,45 @@ export default function CaseStudy() {
               <div className="impact-card-title">AI-ready infrastructure</div>
               <p>The system became the grounding layer for AI-assisted development, preventing drift at the source rather than catching it in QA.</p>
             </div>
+            <div className="impact-card impact-card--wide">
+              <div className="impact-card-icon">🪙</div>
+              <div className="impact-card-title">Projected AI token reduction</div>
+              <p>
+                Three compounding sources of token savings across 5+ product teams estimated at <strong>60–70% reduction</strong> in AI token consumption per UI-related engineering task:
+              </p>
+              <div className="token-savings-grid">
+                <div className="token-savings-row">
+                  <div className="token-savings-source">
+                    <strong>CLI scaffolding</strong>
+                    <span>create-intapp-app</span>
+                  </div>
+                  <div className="token-savings-detail">
+                    New projects arrive pre-wired with UDS tokens, TypeScript config, and CI/CD. Eliminates 3–5 setup sessions per project that previously consumed 40,000–80,000 tokens each in back-and-forth AI iteration.
+                  </div>
+                  <div className="token-savings-est">~100% on setup</div>
+                </div>
+                <div className="token-savings-row">
+                  <div className="token-savings-source">
+                    <strong>Claude Code skills</strong>
+                    <span>/create-component, /handoff, /scaffold-ticket</span>
+                  </div>
+                  <div className="token-savings-detail">
+                    Curated skill prompts replace open-ended AI interactions. A freeform "build me a UDS button" session averages 8–12 exchanges to reach an accurate result; /create-component does it in 1–2 targeted passes.
+                  </div>
+                  <div className="token-savings-est">~70% per task</div>
+                </div>
+                <div className="token-savings-row">
+                  <div className="token-savings-source">
+                    <strong>CLAUDE.md context primers</strong>
+                    <span>Shipped with each @ids package</span>
+                  </div>
+                  <div className="token-savings-detail">
+                    Without primers, AI hallucinates token names and component APIs, requiring correction rounds. With accurate system context loaded upfront, first-attempt accuracy increases substantially — fewer retries, fewer wasted tokens.
+                  </div>
+                  <div className="token-savings-est">~50% per session</div>
+                </div>
+              </div>
+            </div>
           </div>
         </Section>
 

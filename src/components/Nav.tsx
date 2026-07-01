@@ -11,10 +11,12 @@ interface NavProps {
 export default function Nav({ theme, onToggleTheme, crownProgress = 0, onNavigate }: NavProps) {
   const [drawerOpen, setDrawerOpen] = useState(false)
 
-  const goToResume = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const goTo = (path: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    onNavigate('/resume')
+    onNavigate(path)
   }
+
+  const goToResume = goTo('/resume')
 
   // Close drawer on escape key
   useEffect(() => {
@@ -40,7 +42,7 @@ export default function Nav({ theme, onToggleTheme, crownProgress = 0, onNavigat
           {/* Desktop links */}
           <ul className="nav-links nav-links--desktop">
             <li><a href="/#about">About</a></li>
-            <li><a href="/#case-study">Case Study</a></li>
+            <li><a href="/#case-study">Case Studies</a></li>
             <li><a href="/resume" onClick={goToResume}>Resume</a></li>
             <li><LinkedInLink /></li>
             <li><a href="mailto:aimee.maroney@gmail.com" className="nav-contact">Contact</a></li>
@@ -49,7 +51,6 @@ export default function Nav({ theme, onToggleTheme, crownProgress = 0, onNavigat
 
           {/* Mobile controls */}
           <div className="nav-mobile-controls">
-            <LinkedInLink />
             <a href="mailto:aimee.maroney@gmail.com" className="nav-contact">Contact</a>
             <ThemeToggle theme={theme} onToggle={onToggleTheme} />
             <button
@@ -92,8 +93,11 @@ export default function Nav({ theme, onToggleTheme, crownProgress = 0, onNavigat
         </div>
         <ul className="nav-drawer-links">
           <li><a href="/#about" onClick={close}>About</a></li>
-          <li><a href="/#case-study" onClick={close}>Case Study</a></li>
+          <li><a href="/#case-study" onClick={close}>Case Studies</a></li>
+          <li className="nav-drawer-sub"><a href="/case-study/intapp" onClick={(e) => { goTo('/case-study/intapp')(e); close() }}>Intapp Design System</a></li>
+          <li className="nav-drawer-sub"><a href="/case-study/syracuse" onClick={(e) => { goTo('/case-study/syracuse')(e); close() }}>Syracuse University</a></li>
           <li><a href="/resume" onClick={(e) => { goToResume(e); close() }}>Resume</a></li>
+          <li><a href="https://linkedin.com/in/aimeemaroney" target="_blank" rel="noreferrer" onClick={close}>LinkedIn</a></li>
         </ul>
       </div>
     </>

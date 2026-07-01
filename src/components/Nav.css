@@ -257,6 +257,19 @@
   color: var(--color-text-primary);
 }
 
+.nav-drawer-sub a {
+  padding-left: 2rem;
+  font-size: 0.9375rem;
+  color: var(--color-text-muted) !important;
+}
+
+.nav-drawer-sub a::before {
+  content: '↳';
+  margin-right: 0.5rem;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+}
+
 /* ── Responsive breakpoint ── */
 @media (max-width: 680px) {
   .nav-links--desktop {
