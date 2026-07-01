@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './CaseStudy.css'
+import './CaseStudyIndex.css'
 
 const navSections = [
   { id: 'problem',       num: '01', name: 'The Problem' },
@@ -54,6 +55,14 @@ export default function CaseStudy() {
   return (
     <article className="case-study" id="case-study">
       <div className="cs-container">
+
+        {/* Back link */}
+        <a href="/#case-study" className="cs-back">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path fillRule="evenodd" clipRule="evenodd" d="M11.25 0.75C11.45 0.75 11.639 0.828 11.78 0.97C12.072 1.262 12.072 1.738 11.78 2.031L2.56 11.251H23.25C23.664 11.25 24 11.586 24 12C24 12.414 23.664 12.75 23.25 12.75H2.561L11.781 21.97C11.922 22.111 12 22.3 12 22.5C12 22.7 11.922 22.889 11.78 23.03C11.639 23.172 11.45 23.25 11.25 23.25C11.05 23.25 10.861 23.172 10.72 23.03L0.22 12.53C0.15 12.46 0.095 12.378 0.057 12.285C0.054 12.277 0.05 12.268 0.047 12.259C0.016 12.178 0 12.089 0 12C0 11.913 0.016 11.826 0.047 11.742C0.049 11.736 0.051 11.731 0.053 11.726C0.095 11.622 0.151 11.539 0.221 11.469L10.72 0.97C10.861 0.828 11.05 0.75 11.25 0.75Z" fill="currentColor"/>
+          </svg>
+          All Case Studies
+        </a>
 
         {/* Header */}
         <header className="cs-header">

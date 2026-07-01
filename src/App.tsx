@@ -3,6 +3,8 @@ import Nav from './components/Nav'
 import Hero from './components/Hero'
 import CaseStudy from './components/CaseStudy'
 import Resume from './components/Resume'
+import CaseStudyIndex from './components/CaseStudyIndex'
+import SyracuseCaseStudy from './components/SyracuseCaseStudy'
 import Footer from './components/Footer'
 import './App.css'
 
@@ -57,24 +59,23 @@ export default function App() {
   }
 
   const isResume = path === '/resume'
+  const isIntapp = path === '/case-study/intapp'
+  const isSyracuse = path === '/case-study/syracuse'
+  const isHome = !isResume && !isIntapp && !isSyracuse
 
   return (
     <>
       <Nav
         theme={theme}
         onToggleTheme={toggleTheme}
-        crownProgress={isResume ? 0 : crownProgress}
+        crownProgress={isHome ? crownProgress : 0}
         onNavigate={navigate}
       />
       <main>
-        {isResume ? (
-          <Resume />
-        ) : (
-          <>
-            <Hero crownProgress={crownProgress} theme={theme} />
-            <CaseStudy />
-          </>
-        )}
+        {isResume   && <Resume />}
+        {isIntapp   && <CaseStudy />}
+        {isSyracuse && <SyracuseCaseStudy />}
+        {isHome     && <><Hero crownProgress={crownProgress} theme={theme} /><CaseStudyIndex onNavigate={navigate} /></>}
       </main>
       <Footer />
     </>
