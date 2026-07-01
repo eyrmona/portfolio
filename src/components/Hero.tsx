@@ -26,7 +26,7 @@ export default function Hero({ crownProgress = 0, theme = 'dark' }: { crownProgr
           <span className="tag">AI Tooling</span>
         </div>
         <div className="hero-actions">
-          <a href="#case-study" className="btn-primary">View Case Study</a>
+          <a href="#case-study" className="btn-primary">View Case Studies</a>
           <a href="mailto:aimee.maroney@gmail.com" className="btn-secondary">Get in Touch</a>
         </div>
       </div>
