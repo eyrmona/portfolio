@@ -95,6 +95,21 @@ const certifications = [
   { name: 'Umbraco Certified Developer', detail: '2017' },
 ]
 
+const futurePlans = [
+  {
+    title: 'White-Label Token Architecture',
+    description: `Extend the Uniform Design System's semantic token layer to support full white-labeling — enabling acquired products and enterprise clients to apply their own brand identity on top of the shared token foundation without forking the component library.`,
+  },
+  {
+    title: 'AI-Driven Icon Contribution Pipeline',
+    description: 'Automate the icon request and contribution workflow through the UDS Assistant: a user submits an icon request in Slack, the assistant opens a Jira ticket, a webhook triggers branch creation and runs the full icon processing pipeline (optimization, naming, export formats), and opens a Pull Request for review — reducing a manual multi-step process to a single conversation.',
+  },
+  {
+    title: 'CLI-Powered Internal Prototyping Tool',
+    description: `Expand the create-intapp-app CLI beyond project scaffolding into a full AI-powered prototyping environment built around UDS. Designers and engineers could describe a UI in natural language and receive a live, runnable prototype using real Uniform components and design tokens — making design-to-code validation instant and accessible to the entire product org without any build setup.`,
+  },
+]
+
 export default function Resume() {
   return (
     <article className="resume-page" id="resume">
@@ -188,6 +203,18 @@ export default function Resume() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section className="resume-section">
+          <h2 className="resume-section-title">Future Plans</h2>
+          <div className="resume-plans">
+            {futurePlans.map(plan => (
+              <div className="resume-plan" key={plan.title}>
+                <h3 className="resume-plan-title">{plan.title}</h3>
+                <p className="resume-plan-description">{plan.description}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
       </div>

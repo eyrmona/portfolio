@@ -72,21 +72,27 @@
 }
 
 /* ── Shared button styles ── */
-.nav-theme-toggle {
+.nav-theme-toggle,
+.nav-contact,
+.nav-linkedin {
   display: flex;
   align-items: center;
   gap: 0.4em;
-  background: var(--color-surface-raised);
-  border: 1px solid var(--color-border);
   border-radius: 2px;
-  color: var(--color-text-secondary);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 500;
   font-family: inherit;
-  padding: 0.4em 0.75em;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  padding: 0.45em 0.85em;
   line-height: 1;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.nav-theme-toggle {
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  cursor: pointer;
 }
 
 .nav-theme-toggle:hover {
@@ -101,16 +107,25 @@
 .nav-contact {
   color: var(--color-accent) !important;
   border: 1px solid var(--color-tag-border);
-  border-radius: 2px;
-  padding: 0.4em 0.9em;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: background 0.2s, color 0.2s !important;
 }
 
 .nav-contact:hover {
   background: var(--color-accent-subtle);
   color: var(--color-accent-hover) !important;
+}
+
+.nav-linkedin {
+  color: var(--color-text-secondary) !important;
+  border: 1px solid var(--color-border);
+}
+
+.nav-linkedin:hover {
+  background: var(--color-surface-raised);
+  color: var(--color-text-primary) !important;
+}
+
+.nav-linkedin svg {
+  flex-shrink: 0;
 }
 
 /* ── Mobile controls (hidden on desktop) ── */

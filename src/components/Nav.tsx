@@ -42,14 +42,16 @@ export default function Nav({ theme, onToggleTheme, crownProgress = 0, onNavigat
             <li><a href="/#about">About</a></li>
             <li><a href="/#case-study">Case Study</a></li>
             <li><a href="/resume" onClick={goToResume}>Resume</a></li>
-            <li><ThemeToggle theme={theme} onToggle={onToggleTheme} /></li>
+            <li><LinkedInLink /></li>
             <li><a href="mailto:aimee.maroney@gmail.com" className="nav-contact">Contact</a></li>
+            <li><ThemeToggle theme={theme} onToggle={onToggleTheme} /></li>
           </ul>
 
           {/* Mobile controls */}
           <div className="nav-mobile-controls">
-            <ThemeToggle theme={theme} onToggle={onToggleTheme} />
+            <LinkedInLink />
             <a href="mailto:aimee.maroney@gmail.com" className="nav-contact">Contact</a>
+            <ThemeToggle theme={theme} onToggle={onToggleTheme} />
             <button
               className="nav-menu-btn"
               onClick={() => setDrawerOpen(true)}
@@ -115,6 +117,23 @@ function NavCrown({ progress }: { progress: number }) {
         <path d="M48.9715 52.2939L97.4382 2.81926L97.573 62.0947L92.7761 62.0976V57.329H92.8064L92.739 14.4999L50.9353 57.1747L48.9715 59.1875L5.2029 13.7616L4.93434 57.329H4.96364V62.1581L0.16774 62.162L0.570084 2.08098L48.9715 52.2939Z" fill="currentColor"/>
       </svg>
     </div>
+  )
+}
+
+function LinkedInLink() {
+  return (
+    <a
+      href="https://linkedin.com/in/aimeemaroney"
+      className="nav-linkedin"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="LinkedIn profile"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+      LinkedIn
+    </a>
   )
 }
 
