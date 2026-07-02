@@ -74,7 +74,7 @@ export default function ArtifactCaseStudy() {
           <div className="cs-meta-row">
             <div className="cs-meta-item">
               <span className="cs-meta-label">Client</span>
-              <span className="cs-meta-value">AppHammer / Artifact Engine</span>
+              <a className="cs-meta-value cs-meta-link" href="https://apphammer.co" target="_blank" rel="noreferrer">AppHammer / Artifact Engine ↗</a>
             </div>
             <div className="cs-meta-item">
               <span className="cs-meta-label">My Role</span>

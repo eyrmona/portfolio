@@ -76,7 +76,7 @@ export default function CaseStudy() {
           <div className="cs-meta-row">
             <div className="cs-meta-item">
               <span className="cs-meta-label">Company</span>
-              <span className="cs-meta-value">Intapp</span>
+              <a className="cs-meta-value cs-meta-link" href="https://intapp.com" target="_blank" rel="noreferrer">Intapp ↗</a>
             </div>
             <div className="cs-meta-item">
               <span className="cs-meta-label">My Role</span>

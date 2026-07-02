@@ -74,7 +74,7 @@ export default function SyracuseCaseStudy() {
           <div className="cs-meta-row">
             <div className="cs-meta-item">
               <span className="cs-meta-label">Organization</span>
-              <span className="cs-meta-value">Syracuse University</span>
+              <a className="cs-meta-value cs-meta-link" href="https://syracuse.edu" target="_blank" rel="noreferrer">Syracuse University ↗</a>
             </div>
             <div className="cs-meta-item">
               <span className="cs-meta-label">My Role</span>
