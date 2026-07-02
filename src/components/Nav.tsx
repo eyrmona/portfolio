@@ -96,6 +96,7 @@ export default function Nav({ theme, onToggleTheme, crownProgress = 0, onNavigat
           <li><a href="/#case-study" onClick={close}>Case Studies</a></li>
           <li className="nav-drawer-sub"><a href="/case-study/intapp" onClick={(e) => { goTo('/case-study/intapp')(e); close() }}>Intapp Design System</a></li>
           <li className="nav-drawer-sub"><a href="/case-study/syracuse" onClick={(e) => { goTo('/case-study/syracuse')(e); close() }}>Syracuse University</a></li>
+          <li className="nav-drawer-sub"><a href="/case-study/artifact" onClick={(e) => { goTo('/case-study/artifact')(e); close() }}>Artifact Engine</a></li>
           <li><a href="/resume" onClick={(e) => { goToResume(e); close() }}>Resume</a></li>
           <li><a href="https://linkedin.com/in/aimeemaroney" target="_blank" rel="noreferrer" onClick={close}>LinkedIn</a></li>
         </ul>

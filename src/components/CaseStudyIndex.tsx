@@ -19,6 +19,13 @@ const caseStudies = [
     desc: 'Unifying the visual identity of a major research university across 13 schools, dozens of departments, and over 500 web properties — each with its own team, culture, and existing tech stack.',
     tags: ['CSS Framework', 'Icon Library', 'Brand Alignment', 'Institutional Adoption'],
   },
+  {
+    path: '/case-study/artifact',
+    meta: '2024–2025 · AppHammer / Artifact Engine · Freelance',
+    title: 'Artifact Engine Design System',
+    desc: 'Building a fully white-label design system for an AI-driven CMS — one token architecture that generates a completely unique brand identity for every client, from palette to Tailwind to Django.',
+    tags: ['White-Label', 'AI Color Generation', 'Figma MCP', 'Tailwind'],
+  },
 ]
 
 export default function CaseStudyIndex({ onNavigate }: Props) {

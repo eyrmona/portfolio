@@ -5,6 +5,7 @@ import CaseStudy from './components/CaseStudy'
 import Resume from './components/Resume'
 import CaseStudyIndex from './components/CaseStudyIndex'
 import SyracuseCaseStudy from './components/SyracuseCaseStudy'
+import ArtifactCaseStudy from './components/ArtifactCaseStudy'
 import Footer from './components/Footer'
 import './App.css'
 
@@ -61,7 +62,8 @@ export default function App() {
   const isResume = path === '/resume'
   const isIntapp = path === '/case-study/intapp'
   const isSyracuse = path === '/case-study/syracuse'
-  const isHome = !isResume && !isIntapp && !isSyracuse
+  const isArtifact = path === '/case-study/artifact'
+  const isHome = !isResume && !isIntapp && !isSyracuse && !isArtifact
 
   return (
     <>
@@ -75,6 +77,7 @@ export default function App() {
         {isResume   && <Resume />}
         {isIntapp   && <CaseStudy />}
         {isSyracuse && <SyracuseCaseStudy />}
+        {isArtifact && <ArtifactCaseStudy />}
         {isHome     && <><Hero crownProgress={crownProgress} theme={theme} /><CaseStudyIndex onNavigate={navigate} /></>}
       </main>
       <Footer />
