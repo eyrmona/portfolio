@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './CaseStudy.css'
 import './CaseStudyIndex.css'
+import udsLogo from '../assets/UDSLogo.svg'
 
 const navSections = [
   { id: 'problem',       num: '01', name: 'The Problem' },
@@ -67,7 +68,8 @@ export default function CaseStudy() {
         {/* Header */}
         <header className="cs-header">
           <div className="cs-eyebrow">Case Study · 2022–2026</div>
-          <h2 className="cs-title">Intapp Design System</h2>
+          <img src={udsLogo} alt="Uniform Design System logo" className="cs-brand-logo" aria-hidden="true" />
+          <h2 className="cs-title">Uniform — Intapp Design System</h2>
           <p className="cs-subtitle">
             Building a framework-agnostic design system from scratch to unify nine enterprise
             products across five different front-end stacks, scaling it to become the
