@@ -24,8 +24,14 @@
   left: 2rem;
   top: 50%;
   color: var(--color-text-primary);
-  pointer-events: none;
-  transition: color 0.25s ease;
+  pointer-events: auto;
+  transition: color 0.25s ease, opacity 0.15s ease;
+  text-decoration: none;
+}
+
+.nav-crown:hover {
+  opacity: 0.75 !important;
+  color: var(--color-text-primary);
 }
 
 .nav-crown svg {

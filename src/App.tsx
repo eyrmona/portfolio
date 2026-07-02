@@ -72,7 +72,7 @@ export default function App() {
       <Nav
         theme={theme}
         onToggleTheme={toggleTheme}
-        crownProgress={isHome ? crownProgress : 0}
+        crownProgress={isHome ? crownProgress : 1}
         onNavigate={navigate}
       />
       <main>

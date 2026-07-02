@@ -1,50 +1,50 @@
-# React + TypeScript + Vite
+# aimee maroney — portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript + Vite. Deployed to GitHub Pages.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Build & deploy
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm run build
+# dist/ is the output — deploy by pushing dist/ to GitHub Pages
 ```
+
+## Password-protected deep dive
+
+The `/case-study/intapp/deep-dive` slide deck is protected by a password gate. The gate compares a SHA-256 hash of the entered password against a hash stored in the build — the plaintext password is never in the code or bundle.
+
+### Changing the password
+
+1. Generate a hash for your chosen password:
+
+```bash
+node scripts/gen-hash.mjs yourpassword
+```
+
+2. Create or update `.env` in the project root (this file is gitignored):
+
+```
+VITE_DEEP_DIVE_HASH=<hash output from step 1>
+```
+
+3. Rebuild:
+
+```bash
+npm run build
+```
+
+The hash is baked into the bundle at build time. Without a matching `.env`, the gate will accept no password.
+
+### How it works
+
+- The entered password is hashed in the browser using the Web Crypto API (`SHA-256`)
+- The hash is compared to `VITE_DEEP_DIVE_HASH` from the environment
+- On success, auth is stored in `sessionStorage` — persists for the browser tab session, clears on tab close
+- Slide images live in `src/assets/uds/` and are bundled with content-hashed filenames, so they are not guessable by URL
