@@ -3,6 +3,10 @@ import './CaseStudy.css'
 import './CaseStudyIndex.css'
 import udsLogo from '../assets/UDSLogo.svg'
 
+interface CaseStudyProps {
+  onNavigate: (path: string) => void
+}
+
 const navSections = [
   { id: 'problem',       num: '01', name: 'The Problem' },
   { id: 'role',          num: '02', name: 'My Role' },
@@ -16,7 +20,7 @@ const navSections = [
   { id: 'impact',        num: '10', name: 'Impact' },
 ]
 
-export default function CaseStudy() {
+export default function CaseStudy({ onNavigate }: CaseStudyProps) {
   const [activeSection, setActiveSection] = useState('problem')
   const [visitedSections, setVisitedSections] = useState<Set<string>>(new Set())
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -307,6 +311,24 @@ export default function CaseStudy() {
             same vocabulary, with no translation layer needed in handoff.
           </p>
         </Section>
+
+        {/* Deep dive link */}
+        <div className="cs-deep-dive-banner">
+          <div className="cs-deep-dive-banner-text">
+            <strong>Want a closer look?</strong>
+            <span>Explore the discovery, design explorations, and component build in detail.</span>
+          </div>
+          <a
+            href="/case-study/intapp/deep-dive"
+            className="cs-deep-dive-btn"
+            onClick={(e) => { e.preventDefault(); onNavigate('/case-study/intapp/deep-dive') }}
+          >
+            A deeper dive into building the UDS
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path fillRule="evenodd" clipRule="evenodd" d="M12.75 23.25C12.55 23.25 12.361 23.172 12.22 23.03C11.928 22.738 11.928 22.262 12.22 21.969L21.44 12.749H0.75C0.336 12.75 0 12.414 0 12C0 11.586 0.336 11.25 0.75 11.25H21.439L12.219 2.03C12.078 1.889 12 1.7 12 1.5C12 1.3 12.078 1.111 12.22 0.97C12.361 0.828 12.55 0.75 12.75 0.75C12.95 0.75 13.139 0.828 13.28 0.97L23.78 11.47C23.85 11.54 23.905 11.622 23.943 11.715C23.946 11.723 23.95 11.732 23.953 11.741C23.984 11.822 24 11.911 24 12C24 12.087 23.984 12.174 23.953 12.258C23.951 12.264 23.949 12.269 23.947 12.274C23.905 12.378 23.849 12.461 23.779 12.531L13.28 23.03C13.139 23.172 12.95 23.25 12.75 23.25Z" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
 
         {/* Architecture */}
         <Section id="architecture" label="06 / Architecture">

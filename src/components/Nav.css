@@ -270,6 +270,15 @@
   font-size: 0.8rem;
 }
 
+.nav-drawer-sub--deep a {
+  padding-left: 3.5rem;
+  font-size: 0.8125rem;
+  opacity: 0.8;
+}
+.nav-drawer-sub--deep a::before {
+  content: none;
+}
+
 /* ── Responsive breakpoint ── */
 @media (max-width: 680px) {
   .nav-links--desktop {

@@ -6,6 +6,7 @@ import Resume from './components/Resume'
 import CaseStudyIndex from './components/CaseStudyIndex'
 import SyracuseCaseStudy from './components/SyracuseCaseStudy'
 import ArtifactCaseStudy from './components/ArtifactCaseStudy'
+import UDSDeepDive from './components/UDSDeepDive'
 import Footer from './components/Footer'
 import './App.css'
 
@@ -63,7 +64,8 @@ export default function App() {
   const isIntapp = path === '/case-study/intapp'
   const isSyracuse = path === '/case-study/syracuse'
   const isArtifact = path === '/case-study/artifact'
-  const isHome = !isResume && !isIntapp && !isSyracuse && !isArtifact
+  const isDeepDive = path === '/case-study/intapp/deep-dive'
+  const isHome = !isResume && !isIntapp && !isSyracuse && !isArtifact && !isDeepDive
 
   return (
     <>
@@ -75,9 +77,10 @@ export default function App() {
       />
       <main>
         {isResume   && <Resume />}
-        {isIntapp   && <CaseStudy />}
+        {isIntapp   && <CaseStudy onNavigate={navigate} />}
         {isSyracuse && <SyracuseCaseStudy />}
         {isArtifact && <ArtifactCaseStudy />}
+        {isDeepDive && <UDSDeepDive onNavigate={navigate} />}
         {isHome     && <><Hero crownProgress={crownProgress} theme={theme} /><CaseStudyIndex onNavigate={navigate} /></>}
       </main>
       <Footer />
