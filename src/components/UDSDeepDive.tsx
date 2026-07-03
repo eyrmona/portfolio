@@ -34,6 +34,7 @@ type SlideData = {
   title: string
   caption: string
   image?: string
+  images?: string[]
   type: 'cover' | 'image'
 }
 
@@ -73,72 +74,24 @@ const slides: SlideData[] = [
     id: 'chroma',
     section: '03 / Design Exploration',
     title: 'Direction 1: Chroma',
-    caption: 'A bold purple/violet direction with high-contrast UI and saturated data visualization palettes. Explored across light, dark, and branded color variants — energetic, but potentially too distinct from Intapp\'s existing brand identity.',
-    image: imgChroma1,
-    type: 'image',
-  },
-  {
-    id: 'chroma-2',
-    section: '03 / Design Exploration',
-    title: 'Chroma: typography & components',
-    caption: 'Source Sans Pro across light and dark surfaces, with component specs showing how the direction handled modals, data viz, cards, and form inputs. The palette worked at scale — bold without feeling garish in a dense enterprise context.',
-    image: imgChroma2,
-    type: 'image',
-  },
-  {
-    id: 'chroma-3',
-    section: '03 / Design Exploration',
-    title: 'Chroma: moodboard',
-    caption: 'The Chroma Prime moodboard: curious, inviting, energetic. Geometric shapes, bold color fields, pattern repetition. Key references: primary color blocks, iconic forms, lightly textured surfaces. A direction that would have stood out — perhaps too much.',
-    image: imgChroma3,
+    caption: 'A bold purple/violet direction with high-contrast UI, Source Sans Pro typography, and saturated data visualization palettes. Energetic and geometric — but potentially too distinct from Intapp\'s existing brand identity.',
+    images: [imgChroma3, imgChroma1, imgChroma2],
     type: 'image',
   },
   {
     id: 'glass',
     section: '03 / Design Exploration',
     title: 'Direction 2: Glass',
-    caption: 'A cleaner, more restrained direction — white-dominant light mode with deep dark mode. Card-based components with subtle depth and precise typographic hierarchy. Enterprise-grade, approachable.',
-    image: imgGlass1,
-    type: 'image',
-  },
-  {
-    id: 'glass-2',
-    section: '03 / Design Exploration',
-    title: 'Glass: typography & components',
-    caption: 'Inter across lavender-tinted light and near-black dark surfaces. Cards, data viz, modals, and dashboards in the blue-indigo Glass palette. Focused spatial hierarchy — each component felt considered and calm, even at information density.',
-    image: imgGlass2,
-    type: 'image',
-  },
-  {
-    id: 'glass-3',
-    section: '03 / Design Exploration',
-    title: 'Glass: moodboard',
-    caption: 'Glass v03 moodboard: transparency, reflection, diffraction. Frosted surfaces, vivid color washes, pristine geometry. Keywords: transparent, focused, uncomplicated, reflective. Of the three directions, Glass came closest to Intapp\'s existing visual language.',
-    image: imgGlass3,
+    caption: 'A cleaner, more restrained direction — Inter typography, lavender-tinted light mode, deep dark mode. Focused spatial hierarchy and frosted-glass references. Of the three directions, Glass came closest to Intapp\'s existing visual language.',
+    images: [imgGlass3, imgGlass1, imgGlass2],
     type: 'image',
   },
   {
     id: 'mood',
     section: '04 / Final Direction',
-    title: 'Uniform: typography and mood',
-    caption: 'The Uniform direction took shape around structured type pairings and a refined data visualization palette. Tested with real component patterns — calendars, modals, data viz — to ensure the language held up at density.',
-    image: imgMood1,
-    type: 'image',
-  },
-  {
-    id: 'mood-2',
-    section: '04 / Final Direction',
-    title: 'Uniform applied to DealCloud',
-    caption: 'Uniform tested against actual DealCloud product screens in light and dark mode — synergy timelines, entry forms, time tracking, deal pipelines. The palette held up at density, the type hierarchy read cleanly, and the direction felt native to the product rather than imposed on it.',
-    image: imgMood2,
-    type: 'image',
-  },
-  {
-    id: 'mood-3',
-    section: '04 / Final Direction',
-    title: 'Uniform: moodboard',
-    caption: 'The moodboard that gave the direction its name and character: serenity amid chaos, precision construction, organic symmetry, macro meets micro. Earthy, luxurious, modern. Understated but unmistakable — the visual language that would become Uniform.',
-    image: imgMood3,
+    title: 'Uniform: direction, components & mood',
+    caption: 'The chosen direction: precision construction, organic symmetry, macro meets micro. Tested against real DealCloud product screens in light and dark mode — the palette held up at density and the type hierarchy felt native to the product rather than imposed on it.',
+    images: [imgMood3, imgMood1, imgMood2],
     type: 'image',
   },
   {
@@ -192,7 +145,7 @@ const slides: SlideData[] = [
   {
     id: 'icons',
     section: '07 / Component Library',
-    title: 'UDS Icon Library v2.20.0',
+    title: 'UDS Icon Library',
     caption: '200+ icons published as an icon font, searchable in Storybook. Icons are versioned independently from components and include AI-specific icons for emerging product features across the Intapp suite.',
     image: imgIcons,
     type: 'image',
@@ -314,7 +267,13 @@ export default function UDSDeepDive({ onNavigate }: Props) {
                 <div className="uds-slide-section">{slide.section}</div>
                 <h2 className="uds-slide-title">{slide.title}</h2>
               </div>
-              {slide.image && (
+              {slide.images ? (
+                <div className="uds-slide-img-grid">
+                  {slide.images.map((src, i) => (
+                    <img key={i} src={src} alt={`${slide.title} ${i + 1}`} className="uds-slide-img" loading="lazy" />
+                  ))}
+                </div>
+              ) : slide.image ? (
                 <div className="uds-slide-img-wrap">
                   <img
                     src={slide.image}
@@ -323,7 +282,7 @@ export default function UDSDeepDive({ onNavigate }: Props) {
                     loading="lazy"
                   />
                 </div>
-              )}
+              ) : null}
               <p className="uds-slide-caption">{slide.caption}</p>
             </div>
           )}
