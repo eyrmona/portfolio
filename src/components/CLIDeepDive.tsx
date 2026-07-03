@@ -79,8 +79,45 @@ const slides: SlideData[] = [
     ),
   },
   {
+    id: 'discovery-alternatives',
+    section: '02 / Discovery',
+    title: "The alternatives didn't fit.",
+    type: 'text',
+    body: (
+      <div className="cli-body">
+        <p className="cli-lead">The business goal was clear: compress the time from design to production. Every tool evaluated fell short in a different way.</p>
+        <div className="cli-feature-list-rich">
+          <div className="cli-feature-item">
+            <div className="cli-feature-icon">⊙</div>
+            <div>
+              <strong>Figma Make</strong>
+              <p>Generates code from Figma designs, but keeping UDS packages current was a manual, error-prone process. Design system updates didn&apos;t propagate — every sprint risked drift from the real components.</p>
+            </div>
+          </div>
+          <div className="cli-feature-item">
+            <div className="cli-feature-icon">⊙</div>
+            <div>
+              <strong>Lovable / Bolt AI</strong>
+              <p>Consumer prototyping tools with no proper branching or version control. Enterprise plans were a significant additional cost — and still didn&apos;t connect to Intapp&apos;s Artifactory registry, Azure DevOps infrastructure, or <code>@ids</code> packages.</p>
+            </div>
+          </div>
+          <div className="cli-feature-item">
+            <div className="cli-feature-icon">⊙</div>
+            <div>
+              <strong>Claude design mode</strong>
+              <p>Generated visually similar UI but wrote its own component code rather than consuming the actual <code>@ids</code> library. The output looked right but had no real connection to UDS — drift was built in from the first generation.</p>
+            </div>
+          </div>
+        </div>
+        <div className="cli-callout cli-callout--insight">
+          The gap wasn&apos;t a missing tool. It was a missing environment — built on the real design system, with real version control, inside Intapp&apos;s existing infrastructure.
+        </div>
+      </div>
+    ),
+  },
+  {
     id: 'solution',
-    section: '02 / The Solution',
+    section: '03 / The Solution',
     title: 'The environment was the problem.',
     type: 'text',
     body: (
@@ -105,7 +142,7 @@ const slides: SlideData[] = [
   },
   {
     id: 'architecture-interview',
-    section: '03 / Architecture',
+    section: '04 / Architecture',
     title: 'Role-aware scaffolding: the right template, recommended.',
     type: 'text',
     body: (
@@ -146,7 +183,7 @@ const slides: SlideData[] = [
   },
   {
     id: 'architecture-templates',
-    section: '03 / Architecture',
+    section: '04 / Architecture',
     title: 'Four templates. Every one pre-wired.',
     type: 'text',
     body: (
@@ -186,7 +223,7 @@ const slides: SlideData[] = [
   },
   {
     id: 'architecture-box',
-    section: '03 / Architecture',
+    section: '04 / Architecture',
     title: "What's in the box.",
     type: 'text',
     body: (
@@ -219,7 +256,7 @@ const slides: SlideData[] = [
   },
   {
     id: 'architecture-manifest',
-    section: '03 / Architecture',
+    section: '04 / Architecture',
     title: 'Your code is yours. Shared files stay current.',
     type: 'text',
     body: (
@@ -254,7 +291,7 @@ const slides: SlideData[] = [
   },
   {
     id: 'upgrade',
-    section: '04 / Demo',
+    section: '05 / Demo',
     title: "Templates evolve. Projects don't fall behind.",
     type: 'text',
     body: (
@@ -281,7 +318,7 @@ npx @ids/create-intapp-app upgrade --adopt
   },
   {
     id: 'pattern-library',
-    section: '04 / Demo',
+    section: '05 / Demo',
     title: '2.0: A design environment, not just a blank page.',
     type: 'text',
     body: (
@@ -322,7 +359,7 @@ npx @ids/create-intapp-app upgrade --adopt
   },
   {
     id: 'ai-native',
-    section: '05 / AI Native',
+    section: '06 / AI Native',
     title: 'AI context, baked in from the first commit.',
     type: 'text',
     body: (
@@ -363,7 +400,7 @@ npx @ids/create-intapp-app upgrade --adopt
   },
   {
     id: 'impact',
-    section: '06 / Impact',
+    section: '07 / Impact',
     title: 'What it changed.',
     type: 'text',
     body: (

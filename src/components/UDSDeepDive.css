@@ -157,14 +157,14 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-accent);
-  margin-bottom: 0.375rem;
+  margin-bottom: 1.5rem;
 }
 .uds-slide-title {
   font-family: 'IBM Plex Mono', monospace;
   font-size: clamp(1.125rem, 2.5vw, 1.5rem);
   font-weight: 700;
   color: var(--color-text-primary);
-  margin: 0;
+  margin: .5rem 0;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
