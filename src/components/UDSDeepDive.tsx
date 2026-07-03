@@ -6,8 +6,14 @@ import imgBefore1 from '../assets/uds/before-1.jpg'
 import imgDiscovery1 from '../assets/uds/discovery-1.png'
 import imgDiscovery2 from '../assets/uds/discovery-2.png'
 import imgChroma1 from '../assets/uds/chroma-1.png'
+import imgChroma2 from '../assets/uds/chroma-2.png'
+import imgChroma3 from '../assets/uds/chroma-3.png'
 import imgGlass1 from '../assets/uds/glass-1.png'
+import imgGlass2 from '../assets/uds/glass-2.png'
+import imgGlass3 from '../assets/uds/glass-3.png'
 import imgMood1 from '../assets/uds/mood-1.png'
+import imgMood2 from '../assets/uds/mood-2.png'
+import imgMood3 from '../assets/uds/mood-3.png'
 import imgResult1 from '../assets/uds/result-1.jpg'
 import imgResult2 from '../assets/uds/result-2.jpg'
 import imgFoundations1 from '../assets/uds/foundations-1.png'
@@ -72,6 +78,22 @@ const slides: SlideData[] = [
     type: 'image',
   },
   {
+    id: 'chroma-2',
+    section: '03 / Design Exploration',
+    title: 'Chroma: typography & components',
+    caption: 'Source Sans Pro across light and dark surfaces, with component specs showing how the direction handled modals, data viz, cards, and form inputs. The palette worked at scale — bold without feeling garish in a dense enterprise context.',
+    image: imgChroma2,
+    type: 'image',
+  },
+  {
+    id: 'chroma-3',
+    section: '03 / Design Exploration',
+    title: 'Chroma: moodboard',
+    caption: 'The Chroma Prime moodboard: curious, inviting, energetic. Geometric shapes, bold color fields, pattern repetition. Key references: primary color blocks, iconic forms, lightly textured surfaces. A direction that would have stood out — perhaps too much.',
+    image: imgChroma3,
+    type: 'image',
+  },
+  {
     id: 'glass',
     section: '03 / Design Exploration',
     title: 'Direction 2: Glass',
@@ -80,11 +102,43 @@ const slides: SlideData[] = [
     type: 'image',
   },
   {
+    id: 'glass-2',
+    section: '03 / Design Exploration',
+    title: 'Glass: typography & components',
+    caption: 'Inter across lavender-tinted light and near-black dark surfaces. Cards, data viz, modals, and dashboards in the blue-indigo Glass palette. Focused spatial hierarchy — each component felt considered and calm, even at information density.',
+    image: imgGlass2,
+    type: 'image',
+  },
+  {
+    id: 'glass-3',
+    section: '03 / Design Exploration',
+    title: 'Glass: moodboard',
+    caption: 'Glass v03 moodboard: transparency, reflection, diffraction. Frosted surfaces, vivid color washes, pristine geometry. Keywords: transparent, focused, uncomplicated, reflective. Of the three directions, Glass came closest to Intapp\'s existing visual language.',
+    image: imgGlass3,
+    type: 'image',
+  },
+  {
     id: 'mood',
     section: '04 / Final Direction',
     title: 'Uniform: typography and mood',
     caption: 'The Uniform direction took shape around structured type pairings and a refined data visualization palette. Tested with real component patterns — calendars, modals, data viz — to ensure the language held up at density.',
     image: imgMood1,
+    type: 'image',
+  },
+  {
+    id: 'mood-2',
+    section: '04 / Final Direction',
+    title: 'Uniform applied to DealCloud',
+    caption: 'Uniform tested against actual DealCloud product screens in light and dark mode — synergy timelines, entry forms, time tracking, deal pipelines. The palette held up at density, the type hierarchy read cleanly, and the direction felt native to the product rather than imposed on it.',
+    image: imgMood2,
+    type: 'image',
+  },
+  {
+    id: 'mood-3',
+    section: '04 / Final Direction',
+    title: 'Uniform: moodboard',
+    caption: 'The moodboard that gave the direction its name and character: serenity amid chaos, precision construction, organic symmetry, macro meets micro. Earthy, luxurious, modern. Understated but unmistakable — the visual language that would become Uniform.',
+    image: imgMood3,
     type: 'image',
   },
   {
