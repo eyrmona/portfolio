@@ -7,6 +7,7 @@ import CaseStudyIndex from './components/CaseStudyIndex'
 import SyracuseCaseStudy from './components/SyracuseCaseStudy'
 import ArtifactCaseStudy from './components/ArtifactCaseStudy'
 import UDSDeepDive from './components/UDSDeepDive'
+import CLIDeepDive from './components/CLIDeepDive'
 import Footer from './components/Footer'
 import './App.css'
 
@@ -65,7 +66,8 @@ export default function App() {
   const isSyracuse = path === '/case-study/syracuse'
   const isArtifact = path === '/case-study/artifact'
   const isDeepDive = path === '/case-study/intapp/deep-dive'
-  const isHome = !isResume && !isIntapp && !isSyracuse && !isArtifact && !isDeepDive
+  const isCLI = path === '/case-study/intapp/cli'
+  const isHome = !isResume && !isIntapp && !isSyracuse && !isArtifact && !isDeepDive && !isCLI
 
   return (
     <>
@@ -81,6 +83,7 @@ export default function App() {
         {isSyracuse && <SyracuseCaseStudy />}
         {isArtifact && <ArtifactCaseStudy />}
         {isDeepDive && <UDSDeepDive onNavigate={navigate} />}
+        {isCLI      && <CLIDeepDive onNavigate={navigate} />}
         {isHome     && <><Hero crownProgress={crownProgress} theme={theme} /><CaseStudyIndex onNavigate={navigate} /></>}
       </main>
       <Footer />
