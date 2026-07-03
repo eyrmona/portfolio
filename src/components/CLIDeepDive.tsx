@@ -399,8 +399,93 @@ npx @ids/create-intapp-app upgrade --adopt
     ),
   },
   {
+    id: 'workflow-loop',
+    section: '07 / Workflow',
+    title: 'PM to designer to engineer — the full loop.',
+    type: 'text',
+    body: (
+      <div className="cli-body">
+        <p className="cli-lead">The CLI connects every stage of the design-to-production pipeline — from ticket to shipped feature — without handoff gaps or manual translation.</p>
+        <div className="cli-phase-list">
+          <div className="cli-phase-item">
+            <div className="cli-phase-num">1</div>
+            <div className="cli-phase-content">
+              <strong>PM writes the ticket</strong>
+              <span>A Jira ticket (DES-XXXX) captures the requirements and acceptance criteria.</span>
+            </div>
+          </div>
+          <div className="cli-phase-item">
+            <div className="cli-phase-num">2</div>
+            <div className="cli-phase-content">
+              <strong>Designer runs <code>/ticket DES-XXXX</code></strong>
+              <span>Claude pulls the ticket requirements into the scaffolded prototype and guides building to spec — using real <code>@ids</code> components, not generic HTML.</span>
+            </div>
+          </div>
+          <div className="cli-phase-item">
+            <div className="cli-phase-num">3</div>
+            <div className="cli-phase-content">
+              <strong>Prototype pushed to Azure DevOps</strong>
+              <span>Designer pushes to Playground ADO and pastes the prototype URL into the Jira ticket. No export, no screenshots, no Figma handoff document.</span>
+            </div>
+          </div>
+          <div className="cli-phase-item">
+            <div className="cli-phase-num">4</div>
+            <div className="cli-phase-content">
+              <strong>Engineer runs <code>/handoff DES-XXXX</code></strong>
+              <span>Claude fetches the prototype source from ADO, scans the product codebase, and writes a <code>HANDOFF_PLAN.md</code> — no clone, no credential setup beyond what the engineer already has.</span>
+            </div>
+          </div>
+          <div className="cli-phase-item">
+            <div className="cli-phase-num">5</div>
+            <div className="cli-phase-content">
+              <strong>Implement, PR, merge</strong>
+              <span>Engineer follows the plan. <code>/create-pr</code> opens the pull request in ADO. The loop closes with production code that matches the prototype.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 'workflow-skills',
+    section: '07 / Workflow',
+    title: 'Two skills. The handoff is automatic.',
+    type: 'text',
+    body: (
+      <div className="cli-body">
+        <p className="cli-lead">Each side of the handoff has a dedicated skill — one for the designer building to spec, one for the engineer implementing it.</p>
+        <div className="cli-feature-list-rich">
+          <div className="cli-feature-item">
+            <div className="cli-feature-icon">◎</div>
+            <div>
+              <strong><code>/ticket</code> — designer side</strong>
+              <p>Given a Jira ticket ID, Claude pulls the acceptance criteria and requirements into the prototype session. Guides building each spec point using the real <code>@ids</code> component library — no guessing what the PM meant, no generic web code.</p>
+            </div>
+          </div>
+          <div className="cli-feature-item">
+            <div className="cli-feature-icon">◈</div>
+            <div>
+              <strong><code>/handoff</code> — engineer side</strong>
+              <p>Given a ticket ID or prototype URL, Claude fetches the prototype source from Azure DevOps via the engineer&apos;s existing <code>az</code> session — no local clone required. Scans the product codebase, compares component usage, and writes a <code>HANDOFF_PLAN.md</code> listing: acceptance criteria from Jira, components to add, new tokens introduced, and non-UDS code worth reviewing.</p>
+            </div>
+          </div>
+          <div className="cli-feature-item">
+            <div className="cli-feature-icon">◉</div>
+            <div>
+              <strong>Framework translation, automatic</strong>
+              <p>When the prototype and product use different frameworks (e.g. Vanilla → React 19), <code>/handoff</code> also emits a translated <code>src/_handoff/App.tsx</code> — components in the engineer&apos;s exact syntax, derived from the installed <code>@ids</code> package types at runtime.</p>
+            </div>
+          </div>
+        </div>
+        <div className="cli-callout cli-callout--insight">
+          Two repos. No overlap on disk. The engineer never needs a checkout of the designer&apos;s prototype to get started.
+        </div>
+      </div>
+    ),
+  },
+  {
     id: 'impact',
-    section: '07 / Impact',
+    section: '08 / Impact',
     title: 'What it changed.',
     type: 'text',
     body: (
