@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import CaseStudy from './components/CaseStudy'
@@ -21,6 +21,8 @@ export default function App() {
   })
   const [crownProgress, setCrownProgress] = useState(0)
   const [path, setPath] = useState(window.location.pathname)
+  const scrollPositions = useRef<Record<string, number>>({})
+  const pendingHash = useRef<string | null>(null)
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
@@ -32,6 +34,16 @@ export default function App() {
     window.addEventListener('popstate', onPopState)
     return () => window.removeEventListener('popstate', onPopState)
   }, [])
+
+  useEffect(() => {
+    if (pendingHash.current) {
+      const id = pendingHash.current
+      pendingHash.current = null
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+      return
+    }
+    window.scrollTo(0, scrollPositions.current[path] ?? 0)
+  }, [path])
 
   useEffect(() => {
     if (path !== '/') return
@@ -54,11 +66,23 @@ export default function App() {
   const toggleTheme = () => setTheme(t => t === 'dark' ? 'light' : 'dark')
 
   const navigate = (to: string) => {
-    if (to !== window.location.pathname) {
-      window.history.pushState({}, '', to)
-      setPath(to)
+    const hashIndex = to.indexOf('#')
+    const toPath = hashIndex === -1 ? to : to.slice(0, hashIndex) || '/'
+    const toHash = hashIndex === -1 ? '' : to.slice(hashIndex + 1)
+    const from = window.location.pathname
+
+    if (toPath === from) {
+      if (toHash) {
+        window.history.pushState({}, '', to)
+        document.getElementById(toHash)?.scrollIntoView({ behavior: 'smooth' })
+      }
+      return
     }
-    window.scrollTo(0, 0)
+
+    scrollPositions.current[from] = window.scrollY
+    pendingHash.current = toHash || null
+    window.history.pushState({}, '', to)
+    setPath(toPath)
   }
 
   const isResume = path === '/resume'

@@ -17,6 +17,7 @@ export default function Nav({ theme, onToggleTheme, crownProgress = 0, onNavigat
   }
 
   const goToResume = goTo('/resume')
+  const goToCaseStudies = goTo('/#case-study')
 
   // Close drawer on escape key
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function Nav({ theme, onToggleTheme, crownProgress = 0, onNavigat
           {/* Desktop links */}
           <ul className="nav-links nav-links--desktop">
             <li><a href="/#about">About</a></li>
-            <li><a href="/#case-study">Case Studies</a></li>
+            <li><a href="/#case-study" onClick={goToCaseStudies}>Case Studies</a></li>
             <li><a href="/resume" onClick={goToResume}>Resume</a></li>
             <li><LinkedInLink /></li>
             <li><a href="mailto:aimee.maroney@gmail.com" className="nav-contact">Contact</a></li>
@@ -93,7 +94,7 @@ export default function Nav({ theme, onToggleTheme, crownProgress = 0, onNavigat
         </div>
         <ul className="nav-drawer-links">
           <li><a href="/#about" onClick={close}>About</a></li>
-          <li><a href="/#case-study" onClick={close}>Case Studies</a></li>
+          <li><a href="/#case-study" onClick={(e) => { goToCaseStudies(e); close() }}>Case Studies</a></li>
           <li className="nav-drawer-sub"><a href="/case-study/intapp" onClick={(e) => { goTo('/case-study/intapp')(e); close() }}>Uniform — Intapp</a></li>
           <li className="nav-drawer-sub nav-drawer-sub--deep"><a href="/case-study/intapp/deep-dive" onClick={(e) => { goTo('/case-study/intapp/deep-dive')(e); close() }}>↳ UDS deep dive</a></li>
           <li className="nav-drawer-sub nav-drawer-sub--deep"><a href="/case-study/intapp/cli" onClick={(e) => { goTo('/case-study/intapp/cli')(e); close() }}>↳ CLI deep dive</a></li>

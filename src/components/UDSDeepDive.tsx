@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import './UDSDeepDive.css'
-import DeepDiveGate from './DeepDiveGate'
 
 import imgBefore1 from '../assets/uds/before-1.jpg'
 import imgDiscovery1 from '../assets/uds/discovery-1.png'
@@ -169,17 +168,15 @@ const slides: SlideData[] = [
 ]
 
 export default function UDSDeepDive({ onNavigate }: Props) {
-  const [unlocked, setUnlocked] = useState(() => sessionStorage.getItem('ddAuth') === '1')
   const [current, setCurrent] = useState(0)
   const [fading, setFading] = useState(false)
   const touchStartX = useRef<number | null>(null)
 
   useEffect(() => {
-    if (!unlocked) return
     window.scrollTo(0, 0)
     document.body.style.overflow = 'hidden'
     return () => { document.body.style.overflow = '' }
-  }, [unlocked])
+  }, [])
 
   const goTo = useCallback((index: number) => {
     if (index < 0 || index >= slides.length || fading) return
@@ -194,14 +191,13 @@ export default function UDSDeepDive({ onNavigate }: Props) {
   const next = useCallback(() => goTo(current + 1), [current, goTo])
 
   useEffect(() => {
-    if (!unlocked) return
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next()
       if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prev()
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [prev, next, unlocked])
+  }, [prev, next])
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX
@@ -211,10 +207,6 @@ export default function UDSDeepDive({ onNavigate }: Props) {
     const dx = e.changedTouches[0].clientX - touchStartX.current
     if (Math.abs(dx) > 50) dx < 0 ? next() : prev()
     touchStartX.current = null
-  }
-
-  if (!unlocked) {
-    return <DeepDiveGate onUnlock={() => setUnlocked(true)} />
   }
 
   const slide = slides[current]

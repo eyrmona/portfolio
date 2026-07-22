@@ -795,7 +795,8 @@
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
-.cs-scroll-top:hover {
+.cs-scroll-top:hover,
+.cs-scroll-top:focus-visible {
   background: var(--color-border);
   color: var(--color-text-primary);
   border-color: var(--color-accent);

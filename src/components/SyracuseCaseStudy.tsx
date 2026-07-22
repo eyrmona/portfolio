@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './CaseStudy.css'
 import './CaseStudyIndex.css'
 
@@ -17,6 +17,8 @@ export default function SyracuseCaseStudy() {
   const [activeSection, setActiveSection] = useState('su-problem')
   const [visitedSections, setVisitedSections] = useState<Set<string>>(new Set())
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const scrollTopRef = useRef<HTMLButtonElement>(null)
+  const wasAtBottomRef = useRef(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -41,6 +43,11 @@ export default function SyracuseCaseStudy() {
     const article = document.getElementById('su-case-study')
     const onScroll = () => {
       setShowScrollTop(article ? window.scrollY > article.offsetTop + 300 : false)
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2
+      if (atBottom && !wasAtBottomRef.current) {
+        setTimeout(() => scrollTopRef.current?.focus(), 0)
+      }
+      wasAtBottomRef.current = atBottom
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -367,7 +374,7 @@ export default function SyracuseCaseStudy() {
       </div>
 
       {showScrollTop && (
-        <button className="cs-scroll-top" onClick={scrollToTop} aria-label="Back to top of case study">
+        <button ref={scrollTopRef} className="cs-scroll-top" onClick={scrollToTop} aria-label="Back to top of case study">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M8 12V4M4 8l4-4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
