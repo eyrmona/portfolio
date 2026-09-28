@@ -6,7 +6,7 @@ export default function Hero({ crownProgress = 0, theme = 'dark' }: { crownProgr
     <section className="hero" id="about">
       <div className="hero-inner">
         <AimLogo className="hero-logo" crownProgress={crownProgress} />
-        <div className="hero-eyebrow">Design System Leader + UI Engineering</div>
+        <div className="hero-eyebrow">Design System Leader + Design Engineer</div>
         <h1 className="hero-name">Aimee Maroney</h1>
         <p className="hero-bio">
           I build the infrastructure that connects design to code: design systems, token architectures,

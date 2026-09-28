@@ -7,7 +7,7 @@ interface Props {
 const caseStudies = [
   {
     path: '/case-study/intapp',
-    meta: '2022–2026 · Intapp · UI Engineering Manager',
+    meta: '2022–2026 · Intapp · Design Engineering Lead',
     title: 'Uniform — Intapp Design System',
     desc: 'Building a framework-agnostic design system from scratch to unify nine enterprise products across five different front-end stacks, scaling it into the foundation for AI-assisted development.',
     tags: ['Design Tokens', 'Multi-Framework', 'AI Tooling', 'Team Leadership'],

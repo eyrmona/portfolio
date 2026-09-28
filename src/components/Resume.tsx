@@ -10,23 +10,15 @@ const expertise = [
 ]
 
 const experience = [
+
   {
-    title: 'Design System Engineering Manager',
+    title: 'Lead Design Engineer',
     company: 'Intapp',
-    dates: 'July 2024 – June 2026',
+    dates: '2022 – 2026',
     bullets: [
-      "Built and scaled Intapp's Uniform Design System engineering team; hired and managed 2 UI Engineers, authored the 5-level UI Engineering career ladder (Associate through Principal), and established the team's operating model, roadmap process, and design system governance framework",
+      'Led 3 AI-driven strategic initiatives: AI Design System Assistant (Slack/ZeroHeight), Figma MCP for real-time design-to-code alignment, and create-intapp-app CLI for instant UDS-preconfigured project scaffolding',
       'Drove design system adoption across 5+ product engineering teams and set integration playbook for acquired products, positioning UDS as the default infrastructure for every new product at Intapp',
       'Presented executive investment case for UDS to senior leadership, framing the design system as AI-ready, org-wide shared infrastructure, and securing expanded roadmap and headcount',
-      'Led 3 AI-driven strategic initiatives: AI Design System Assistant (Slack/ZeroHeight), Figma MCP for real-time design-to-code alignment, and create-intapp-app CLI for instant UDS-preconfigured project scaffolding',
-      'Developed and promoted 2 direct reports to Senior UI Engineer in February 2026 through structured career development, mentorship, and documented promotion cases',
-    ],
-  },
-  {
-    title: 'Lead UI Engineer',
-    company: 'Intapp',
-    dates: '2022 – 2025',
-    bullets: [
       "Architected Intapp's Uniform Design System from the ground up: a production-ready component library published across React, Angular, Next.js, and Web Components (StencilJS) from a single mono-repo",
       'Delivered 30+ production components built to WCAG 2.1 accessibility standards, adopted by teams including Time, Activator, and Billstream',
       'Designed and implemented semantic design token architecture enabling dark/light mode, white-labeling, and rapid rebranding applied across all Intapp products',

@@ -93,7 +93,7 @@ export default function CaseStudy({ onNavigate }: CaseStudyProps) {
             </div>
             <div className="cs-meta-item">
               <span className="cs-meta-label">My Role</span>
-              <span className="cs-meta-value">UI Engineering Manager</span>
+              <span className="cs-meta-value">Design Engineering Lead</span>
             </div>
             <div className="cs-meta-item">
               <span className="cs-meta-label">Team</span>
