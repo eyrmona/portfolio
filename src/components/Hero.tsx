@@ -1,29 +1,57 @@
 import './Hero.css'
 import TokenButtonDemo from './TokenButtonDemo'
+import type { Mode } from '../mode'
 
-export default function Hero({ crownProgress = 0, theme = 'dark' }: { crownProgress?: number; theme?: 'dark' | 'light' }) {
+const HERO_CONTENT: Record<Mode, { eyebrow: string; bio: string; tags: string[] }> = {
+  design: {
+    eyebrow: 'Design Systems + Product Design',
+    bio:
+      'I design the systems behind great products: foundations, component libraries, and the ' +
+      'patterns teams reach for every day. I partner with product teams to turn complex, real-world ' +
+      'workflows into interfaces that are clear, consistent, and accessible, and I set up the ' +
+      'governance that keeps them that way as products grow.',
+    tags: [
+      'Design Systems', 'Product Design', 'Figma', 'Component Design', 'Design Tokens',
+      'Interaction Design', 'Prototyping', 'Accessibility', 'Documentation', 'Governance',
+    ],
+  },
+  engineering: {
+    eyebrow: 'Design System Engineering',
+    bio:
+      'I build the infrastructure that turns design into production code: token pipelines, ' +
+      'multi-framework component libraries, and the tooling that helps teams ship on-system by ' +
+      'default. From mono-repo architecture and CI/CD to AI-powered developer tools, I write the ' +
+      'code that lets a design system scale.',
+    tags: [
+      'Web Components', 'Stencil', 'React', 'Angular', 'TypeScript', 'SCSS',
+      'Design Tokens', 'Monorepo', 'CI/CD', 'AI Tooling',
+    ],
+  },
+}
+
+export default function Hero({
+  crownProgress = 0,
+  mode = 'design',
+  theme = 'light',
+}: {
+  crownProgress?: number
+  mode?: Mode
+  theme?: 'dark' | 'light'
+}) {
+  const content = HERO_CONTENT[mode]
+
   return (
     <section className="hero" id="about">
       <div className="hero-inner">
         <AimLogo className="hero-logo" crownProgress={crownProgress} />
-        <div className="hero-eyebrow">Design System Leader + Design Engineer</div>
-        <h1 className="hero-name">Aimee Maroney</h1>
-        <p className="hero-bio">
-          I build the infrastructure that connects design to code: design systems, token architectures,
-          component libraries, and the tooling that makes them scale. I work at the intersection of
-          engineering rigor and design craft, with a background in both.
-        </p>
-        <div className="hero-tags">
-          <span className="tag">Design Systems</span>
-          <span className="tag">Figma</span>
-          <span className="tag">Web Components</span>
-          <span className="tag">Design Tokens</span>
-          <span className="tag">React</span>
-          <span className="tag">TypeScript</span>
-          <span className="tag">SCSS</span>
-          <span className="tag">Stencil</span>
-          <span className="tag">Accessibility</span>
-          <span className="tag">AI Tooling</span>
+        {/* Keyed by mode so the copy re-runs its fade-in on each switch */}
+        <div className="hero-copy" key={mode}>
+          <div className="hero-eyebrow">{content.eyebrow}</div>
+          <h1 className="hero-name">Aimee Maroney</h1>
+          <p className="hero-bio">{content.bio}</p>
+          <div className="hero-tags">
+            {content.tags.map(tag => <span className="tag" key={tag}>{tag}</span>)}
+          </div>
         </div>
         <div className="hero-actions">
           <a href="#case-study" className="btn-primary">View Case Studies</a>

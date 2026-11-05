@@ -9,16 +9,21 @@ import ArtifactCaseStudy from './components/ArtifactCaseStudy'
 import UDSDeepDive from './components/UDSDeepDive'
 import CLIDeepDive from './components/CLIDeepDive'
 import Footer from './components/Footer'
+import { THEME_FOR_MODE, type Mode } from './mode'
 import './App.css'
 
-type Theme = 'dark' | 'light'
 
 const CROWN_SCROLL_DISTANCE = 220
 
 export default function App() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    return (localStorage.getItem('theme') as Theme) ?? 'dark'
+  const [mode, setMode] = useState<Mode>(() => {
+    try {
+      const saved = localStorage.getItem('mode')
+      if (saved === 'design' || saved === 'engineering') return saved
+    } catch { /* storage unavailable */ }
+    return 'design'
   })
+  const theme = THEME_FOR_MODE[mode]
   const [crownProgress, setCrownProgress] = useState(0)
   const [path, setPath] = useState(window.location.pathname)
   const scrollPositions = useRef<Record<string, number>>({})
@@ -26,8 +31,9 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
-  }, [theme])
+    document.documentElement.setAttribute('data-mode', mode)
+    try { localStorage.setItem('mode', mode) } catch { /* storage unavailable */ }
+  }, [mode, theme])
 
   useEffect(() => {
     const onPopState = () => setPath(window.location.pathname)
@@ -63,8 +69,6 @@ export default function App() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [path])
 
-  const toggleTheme = () => setTheme(t => t === 'dark' ? 'light' : 'dark')
-
   const navigate = (to: string) => {
     const hashIndex = to.indexOf('#')
     const toPath = hashIndex === -1 ? to : to.slice(0, hashIndex) || '/'
@@ -96,8 +100,8 @@ export default function App() {
   return (
     <>
       <Nav
-        theme={theme}
-        onToggleTheme={toggleTheme}
+        mode={mode}
+        onModeChange={setMode}
         crownProgress={isHome ? crownProgress : 1}
         onNavigate={navigate}
       />
@@ -108,7 +112,7 @@ export default function App() {
         {isArtifact && <ArtifactCaseStudy />}
         {isDeepDive && <UDSDeepDive onNavigate={navigate} />}
         {isCLI      && <CLIDeepDive onNavigate={navigate} />}
-        {isHome     && <><Hero crownProgress={crownProgress} theme={theme} /><CaseStudyIndex onNavigate={navigate} /></>}
+        {isHome     && <><Hero crownProgress={crownProgress} mode={mode} theme={theme} /><CaseStudyIndex onNavigate={navigate} /></>}
       </main>
       <Footer />
     </>

@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react'
+import type { Mode } from '../mode'
 import './Nav.css'
 
 interface NavProps {
-  theme: 'dark' | 'light'
-  onToggleTheme: () => void
+  mode: Mode
+  onModeChange: (mode: Mode) => void
   crownProgress?: number
   onNavigate: (path: string) => void
 }
 
-export default function Nav({ theme, onToggleTheme, crownProgress = 0, onNavigate }: NavProps) {
+export default function Nav({ mode, onModeChange, crownProgress = 0, onNavigate }: NavProps) {
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   const goTo = (path: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -38,7 +39,14 @@ export default function Nav({ theme, onToggleTheme, crownProgress = 0, onNavigat
     <>
       <nav className="nav">
         <div className="nav-inner">
-          <NavCrown progress={crownProgress} onNavigate={onNavigate} />
+          {/* The switcher slides right as the crown fades in, driven by --crown-progress */}
+          <div
+            className="nav-left"
+            style={{ '--crown-progress': crownProgress } as React.CSSProperties}
+          >
+            <NavCrown progress={crownProgress} onNavigate={onNavigate} />
+            <ModeSwitcher mode={mode} onChange={onModeChange} />
+          </div>
 
           {/* Desktop links */}
           <ul className="nav-links nav-links--desktop">
@@ -47,13 +55,11 @@ export default function Nav({ theme, onToggleTheme, crownProgress = 0, onNavigat
             <li><a href="/resume" onClick={goToResume}>Resume</a></li>
             <li><LinkedInLink /></li>
             <li><a href="mailto:aimee.maroney@gmail.com" className="nav-contact">Contact</a></li>
-            <li><ThemeToggle theme={theme} onToggle={onToggleTheme} /></li>
           </ul>
 
           {/* Mobile controls */}
           <div className="nav-mobile-controls">
             <a href="mailto:aimee.maroney@gmail.com" className="nav-contact">Contact</a>
-            <ThemeToggle theme={theme} onToggle={onToggleTheme} />
             <button
               className="nav-menu-btn"
               onClick={() => setDrawerOpen(true)}
@@ -147,31 +153,30 @@ function LinkedInLink() {
   )
 }
 
-function ThemeToggle({ theme, onToggle }: { theme: 'dark' | 'light'; onToggle: () => void }) {
+const MODES: { value: Mode; label: string }[] = [
+  { value: 'design', label: 'Design' },
+  { value: 'engineering', label: 'Engineering' },
+]
+
+function ModeSwitcher({ mode, onChange }: { mode: Mode; onChange: (mode: Mode) => void }) {
   return (
-    <button
-      className="nav-theme-toggle"
-      onClick={onToggle}
-      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-    >
-      {theme === 'dark' ? (
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <circle cx="8" cy="8" r="3.5" stroke="currentColor" strokeWidth="1.5"/>
-          <line x1="8" y1="1" x2="8" y2="2.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-          <line x1="8" y1="13.5" x2="8" y2="15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-          <line x1="1" y1="8" x2="2.5" y2="8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-          <line x1="13.5" y1="8" x2="15" y2="8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-          <line x1="2.93" y1="2.93" x2="4" y2="4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-          <line x1="12" y1="12" x2="13.07" y2="13.07" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-          <line x1="2.93" y1="13.07" x2="4" y2="12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-          <line x1="12" y1="4" x2="13.07" y2="2.93" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        </svg>
-      ) : (
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <path d="M13.5 9.5A6 6 0 0 1 6.5 2.5a6 6 0 1 0 7 7z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      )}
-      {theme === 'dark' ? 'Light' : 'Dark'}
-    </button>
+    <div className="nav-mode" role="group" aria-label="Show work for">
+      <span
+        className="nav-mode-indicator"
+        data-active={mode}
+        aria-hidden="true"
+      />
+      {MODES.map(({ value, label }) => (
+        <button
+          key={value}
+          type="button"
+          className="nav-mode-option"
+          aria-pressed={mode === value}
+          onClick={() => onChange(value)}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
   )
 }

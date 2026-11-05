@@ -103,6 +103,19 @@
   }
 }
 
+.hero-copy {
+  animation: hero-copy-in 0.35s ease-out;
+}
+
+@keyframes hero-copy-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy { animation: none; }
+}
+
 .hero-eyebrow {
   font-size: 0.8125rem;
   font-weight: 600;

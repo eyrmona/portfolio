@@ -12,17 +12,45 @@
   position: relative;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 2rem;
+  /* Left padding mirrors .hero so the switcher lines up with the hero logo */
+  padding: 0 2rem 0 0;
   height: 64px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav-left {
+  --crown-width: 29px;
+  --crown-gap: 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-left .nav-mode {
+  transform: translateX(calc(var(--crown-progress, 0) * (var(--crown-width) + var(--crown-gap))));
+  transition: transform 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-left .nav-mode { transition: none; }
+}
+
+@media (max-width: 1099px) {
+  .nav-inner { padding-left: 2rem; }
+}
+
+@media (max-width: 767px) {
+  .nav-inner { padding-left: 1.5rem; }
 }
 
 .nav-crown {
   position: absolute;
-  left: 2rem;
+  left: 0;
   top: 50%;
+  transform-origin: left center;
   color: var(--color-text-primary);
   pointer-events: auto;
   transition: color 0.25s ease, opacity 0.15s ease;
@@ -78,7 +106,6 @@
 }
 
 /* ── Shared button styles ── */
-.nav-theme-toggle,
 .nav-contact,
 .nav-linkedin {
   display: flex;
@@ -94,20 +121,65 @@
   white-space: nowrap;
 }
 
-.nav-theme-toggle {
+/* ── Design / Engineering switcher ── */
+.nav-mode {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3px;
   background: var(--color-surface-raised);
   border: 1px solid var(--color-border);
-  color: var(--color-text-secondary);
-  cursor: pointer;
+  border-radius: 3px;
 }
 
-.nav-theme-toggle:hover {
-  background: var(--color-border);
+.nav-mode-indicator {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease;
+}
+
+.nav-mode-indicator[data-active='engineering'] {
+  transform: translateX(100%);
+}
+
+.nav-mode-option {
+  position: relative;
+  z-index: 1;
+  background: none;
+  border: 0;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 0.5em 0.85em;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.nav-mode-option:hover {
   color: var(--color-text-primary);
 }
 
-.nav-theme-toggle svg {
-  flex-shrink: 0;
+.nav-mode-option[aria-pressed='true'] {
+  color: var(--color-text-primary);
+}
+
+.nav-mode-option:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-mode-indicator { transition: none; }
 }
 
 .nav-contact {
@@ -286,7 +358,8 @@
 }
 
 /* ── Responsive breakpoint ── */
-@media (max-width: 680px) {
+/* Below 900px the full link list collides with the switcher (iPad mini/Air portrait), so use the menu */
+@media (max-width: 899px) {
   .nav-links--desktop {
     display: none;
   }
@@ -297,5 +370,21 @@
 
   .nav-overlay {
     display: block;
+  }
+}
+
+/* Phones: tighten spacing so everything fits on one row */
+@media (max-width: 680px) {
+  .nav-inner {
+    padding-right: 1rem;
+  }
+
+  .nav-left {
+    --crown-gap: 0.75rem;
+  }
+
+  .nav-mode-option {
+    font-size: 0.75rem;
+    padding: 0.5em 0.6em;
   }
 }
