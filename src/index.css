@@ -22,11 +22,11 @@
 
 /* ── Light mode ── */
 [data-theme='light'] {
-  --color-bg: #F6F7ED;              /* Praxeti White */
+  --color-bg: #F2F5FA;              /* cool blue-tinted white */
   --color-surface: #ffffff;
-  --color-surface-raised: #eef0e6;
-  --color-border: #b8c9a5;
-  --color-border-subtle: #d4d9c8;
+  --color-surface-raised: #E6ECF5;
+  --color-border: #B4C3D9;
+  --color-border-subtle: #D3DCE9;
   --color-text-primary: #001F3F;    /* Midnight Mirage */
   --color-text-secondary: #1a3a5c;  /* dark navy, 10.3:1 */
   --color-text-muted: #1E488F;      /* Nuit Blanche, 7.3:1 */
